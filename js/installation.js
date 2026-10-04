@@ -9,6 +9,9 @@ export function initInstallation(getLanguage) {
   const status = document.getElementById('installation-status');
   const progressBar = document.getElementById('animation-progress');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const duration = 7000;
+  const attachmentEnd = .60;
+  const calibrationStart = .65;
   let width = 0, height = 0, progress = reducedMotion.matches ? 1 : 0;
   let visible = false, playing = !reducedMotion.matches, started = false;
   let frame = 0, lastTime = null, selectedStep = -1;
@@ -130,7 +133,7 @@ export function initInstallation(getLanguage) {
   }
   function circleAt(y,r,color,thickness=1) {const points=[];for(let i=0;i<=50;i++)points.push([Math.cos(i/50*TAU)*r,y,Math.sin(i/50*TAU)*r]);line(points,color,thickness);}
   function updateStep(force=false) {
-    const next = progress < .29 ? 0 : progress < .73 ? 1 : 2;
+    const next = progress < .20 ? 0 : progress < calibrationStart ? 1 : 2;
     if(next!==selectedStep||force) {
       selectedStep=next;
       buttons.forEach((button,i)=>{button.classList.toggle('active',i===next);button.setAttribute('aria-pressed',String(i===next));});
@@ -150,7 +153,8 @@ export function initInstallation(getLanguage) {
     glow.addColorStop(0,'rgba(147,198,86,.065)');glow.addColorStop(1,'rgba(147,198,86,0)');
     ctx.fillStyle=glow;ctx.fillRect(0,0,width,height);
     shapes=[];
-    const attach=ease(clamp((progress-.27)/.40));
+    // Start approaching immediately, without a stationary opening segment.
+    const attach=ease(clamp(progress/attachmentEnd));
     const offset=55*(1-attach);
     const sensorTop=-187-offset;
     const sensorHeight=15; // 25% thinner than the previous 20-unit cylinder.
@@ -176,8 +180,8 @@ export function initInstallation(getLanguage) {
     rod([0,sensorY(.85),0],[0,sensorY(1),0],13,[43,51,36],40);
     circleAt(sensorY(1.015),8.5,'#a4ce67',1.1);
     if(offset>3) line([[0,-188,0],[0,sensorTop+3,0]],'rgba(195,243,107,.6)',1,true);
-    if(progress>.74) {
-      const calibration=clamp((progress-.74)/.25);
+    if(progress>calibrationStart) {
+      const calibration=clamp((progress-calibrationStart)/(1-calibrationStart));
       for(let i=0;i<3;i++){const radius=24+i*10+calibration*7;circleAt(sensorY(.7+i*.15),radius,`rgba(195,243,107,${.23-i*.05})`,1);}
     }
     shapes.sort((a,b)=>a.z-b.z);
@@ -202,7 +206,7 @@ export function initInstallation(getLanguage) {
     if(!visible){lastTime=null;return;}
     const delta=lastTime===null?0:Math.min(time-lastTime,60);lastTime=time;
     if(transition){transition.elapsed+=delta;const t=clamp(transition.elapsed/900);progress=transition.from+(transition.to-transition.from)*ease(t);if(t>=1)transition=null;}
-    else if(playing){progress=clamp(progress+delta/10500);if(progress===1)playing=false;}
+    else if(playing){progress=clamp(progress+delta/duration);if(progress===1)playing=false;}
     render();
     if(playing||transition)frame=requestAnimationFrame(tick);else lastTime=null;
   }
@@ -210,7 +214,7 @@ export function initInstallation(getLanguage) {
   function resize(){const rect=stage.getBoundingClientRect();width=rect.width;height=rect.height;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);render();}
   new ResizeObserver(resize).observe(stage);
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible){started=true;requestRender();}else{if(frame)cancelAnimationFrame(frame);frame=0;lastTime=null;}},{threshold:.15});observer.observe(stage);
-  buttons.forEach((button,i)=>button.addEventListener('click',()=>{playing=false;const target=[.15,.68,1][i];if(reducedMotion.matches||!visible){progress=target;transition=null;}else transition={from:progress,to:target,elapsed:0};requestRender();}));
+  buttons.forEach((button,i)=>button.addEventListener('click',()=>{playing=false;const target=[0,attachmentEnd,1][i];if(reducedMotion.matches||!visible){progress=target;transition=null;}else transition={from:progress,to:target,elapsed:0};requestRender();}));
   document.getElementById('replay-install').addEventListener('click',()=>{transition=null;progress=0;playing=true;lastTime=null;requestRender();});
   window.addEventListener('site-language',()=>{updateStep(true);render();});
   reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches){playing=false;transition=null;progress=1;render();}});

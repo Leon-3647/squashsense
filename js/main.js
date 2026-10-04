@@ -1,5 +1,5 @@
 import { english, siteConfig } from './content.js?v=20261002-intro-v6';
-import { initInstallation } from './installation.js?v=20261002-intro-v6';
+import { initInstallation } from './installation.js?v=20261004-motion2';
 
 const translatedNodes = [...document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-alt],[data-i18n-aria]')];
 const original = new Map(translatedNodes.map(node => [node, { text: node.textContent, html: node.innerHTML, alt: node.getAttribute('alt'), aria: node.getAttribute('aria-label') }]));
