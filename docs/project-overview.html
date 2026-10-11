@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101310">
-<title>SquashSense — Project overview / 项目概览</title>
-<meta name="description" content="One-page overview of SquashSense, a student-built squash training research prototype: what it is, what has been demonstrated, what is unvalidated, and what comes next. English and Chinese.">
+<title>SquashSense — Project overview</title>
+<meta name="description" content="One-page overview of SquashSense, a student-built squash training research prototype: what it is, what has been demonstrated, what is unvalidated, and what comes next.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#101310;--lime:#c3f36b;--text:#f4f6ed;--muted:#c0c9bb;--border:#2c342c;--ink:#182019;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:var(--text);background:var(--bg)}
@@ -36,7 +36,7 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-
 <div class="wrap">
 <header>
   <a class="brand" href="../"><span>s•</span>SquashSense</a>
-  <nav><a href="../?lang=en">Site (EN)</a><a href="../?lang=zh">网站（中文）</a><a href="#zh">中文</a></nav>
+  <nav><a href="../">Back to the site</a><a href="https://github.com/leon-3647/squashsense">Source on GitHub</a></nav>
 </header>
 
 <h1>SquashSense — project overview</h1>
@@ -103,71 +103,6 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-
   <li>Application and firmware code: not public at the time of writing.</li>
 </ul>
 
-<section class="lang" id="zh" lang="zh-CN">
-<h1>SquashSense — 项目概览</h1>
-<p class="meta">学生自制 · 训练研究原型 · LEON · 2026 年 10 月更新</p>
-
-<p>SquashSense 是一个同时从两个角度记录壁球挥拍的原型：球拍握柄末端的小型运动传感器，加上场边电脑上追踪球员身体的摄像头。软件把两路数据放到同一条时间线上，训练后可以对着数字和画面一起回看一次挥拍。它由高中壁球运动员 Leon 出于个人兴趣制作，不是产品，目前也不能试用。</p>
-
-<h2>由什么组成</h2>
-<ul>
-  <li><b>球拍传感器</b>——一块 ESP32-S3 微控制器板和一颗 ICM42688 六轴 IMU（三轴加速度计 + 三轴陀螺仪），装在固定于拍柄底部的短圆柱外壳里。配置采样率 500 Hz，录像那次训练接收端实际计得约 504 Hz。数据通过 ESP-NOW（基于 Wi-Fi 的短距离协议）发给场边电脑上的 USB 接收器。</li>
-  <li><b>身体追踪</b>——接在场边电脑上的摄像头；Google 的 MediaPipe Pose 模型每帧找出 33 个关键点，SquashSense 自己的代码据此计算关节角度标签、手腕路径和挥拍阶段。录像那次每秒处理 14–16 帧。</li>
-  <li><b>场边电脑</b>——一块 Radxa ROCK 5C 单板电脑，装在外壳里用吸盘吸在球场玻璃上。它运行姿态模型、接收传感器数据流、检测挥拍、对齐时钟，并通过局域网提供网页界面。</li>
-</ul>
-
-<h2>已经演示过的</h2>
-<p>完整记录下来的训练只有一次：2026 年 8 月 27 日，自由击球，22 分钟，一名球员（Leon），软件识别出 197 次挥拍。录屏显示整条链路在球场上实时跑通：传感器 → 无线 → 电脑 → 浏览器曲线；摄像头 → 关键点 → 角度标签；在真实挥拍上完成检测与阶段划分；训练结束生成报告。另有少量非正式球场测试，没有记日志，所以不报场次。</p>
-
-<h2>作者陈述、未经独立核实的</h2>
-<p>以下来自 Leon 的介绍视频（12 分 32 秒，英文）和早期笔记。本概览没有检查应用程序和固件代码。</p>
-<ul>
-  <li>挥拍检测寻找的是持续加速而不是固定速度阈值（早期阈值版本漏掉慢而紧凑的挥拍）；当加速度计出现冲击且球拍接近峰值速度时判定为击球；阶段在事后按方向改变划分。</li>
-  <li>时钟按观察到的最快送达对齐，随漂移逐步修正，剩余不确定度显示在界面上。</li>
-  <li>检测与评分在球场测试之前是在模拟器上开发的。</li>
-</ul>
-
-<h2>各项显示数值的状态</h2>
-<table>
-<thead><tr><th>数值</th><th>状态</th></tr></thead>
-<tbody>
-<tr><th>角速度（当前 / 峰值，°/s）与动态加速度（g）</th><td class="ok">传感器直接量；已实时演示；精度未与参考仪器比对</td></tr>
-<tr><th>传感器采样率</th><td class="ok">配置 500 Hz，实测约 504 Hz</td></tr>
-<tr><th>挥拍计数与阶段</th><td class="warn">在真实挥拍上运行过；未与人工计数或标注视频核对</td></tr>
-<tr><th>摄像头得到的关节角度</th><td class="warn">单摄像头估计值；带 * 的是图像平面角；无参考测量</td></tr>
-<tr><th>挥拍速度（km/h）、击球冲击、动作评分、一致性、节奏</th><td class="bad">未验证；录像里出现不合理值（如 261.7 km/h）和负的“节奏”</td></tr>
-<tr><th>“拍面角度”</th><td class="bad">相对中立姿态的朝向估计，而那次训练没有记录中立姿态；传感器单独估计的朝向会漂移</td></tr>
-<tr><th>数据延迟卡片</th><td class="bad">显示约 1,252,800 ms——两个时钟基准的偏移，不是真实延迟</td></tr>
-<tr><th>挥拍类型分类</th><td class="bad">自由击球练习中分出 65 次发球、8 次正手、4 次反手、约 120 次未分类——不可靠</td></tr>
-<tr><th>反馈短句与报告建议</th><td class="bad">规则生成的文字；未与教练判断比对</td></tr>
-</tbody>
-</table>
-
-<h2>还没有做的</h2>
-<ul>
-  <li>没有参考方法（雷达、动作捕捉、标注视频）；任何指标都没有精度数字。</li>
-  <li>没有测量视频帧与传感器峰值之间的时间误差。</li>
-  <li>没有测量传感器重量、尺寸、续航、准备耗时，以及对球拍平衡的影响。</li>
-  <li>没有证据表明使用这个界面会改变任何人的打法。</li>
-</ul>
-
-<h2>下一步（Leon 的计划）</h2>
-<ul>
-  <li>录制并逐拍标注真实训练；在真实数据而不是模拟器上调整检测与评分。</li>
-  <li>校准传感器安装方向，区分正手和反手。</li>
-  <li>加入对球拍和球的视频追踪，得到真实拍头轨迹和触球点，与传感器估计比对。</li>
-  <li>做一个几周的小规模对照，比较用和不用界面的球员。</li>
-</ul>
-
-<h2>谁做了什么</h2>
-<p>Leon 组装了硬件，编写了传感器固件（读取 IMU、带损坏检测的数据包格式、无线链路）、传感器数据处理、时钟对齐、挥拍检测与阶段逻辑和训练界面，并进行了球场测试。身体关键点来自 Google 的 MediaPipe Pose；无线使用 Espressif 的 ESP-NOW；界面基于开源网页库；硬件均为现成模块。队友参与了球场测试，一位老师给了建议，部分代码在 AI 编程助手协助下完成，调试与迭代由 Leon 完成。</p>
-
-<h2>资料</h2>
-<ul>
-  <li>网站与本概览：<a href="https://github.com/leon-3647/squashsense">github.com/leon-3647/squashsense</a>（公开）。</li>
-  <li>应用程序与固件代码：截至撰写时未公开。</li>
-</ul>
-</section>
 
 <footer>© 2026 Leon · SquashSense · <a href="../">Back to the site</a></footer>
 </div>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101310">
-<meta name="description" content="SquashSense 是一个学生自制的壁球训练研究原型：球拍末端的运动传感器加场边摄像头的身体追踪，把两路数据放在同一条时间线上，供训练后复盘。">
-<title>SquashSense — 用球拍运动数据和身体追踪复盘挥拍</title>
+<meta name="description" content="SquashSense is a student-built squash training research prototype: a racket-mounted motion sensor and camera-based body tracking on one timeline, with an honest account of what has and has not been tested.">
+<title>SquashSense — Review your swing with racket motion and body tracking</title>
 <link rel="canonical" href="https://leon-3647.github.io/squashsense/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SquashSense">
@@ -15,152 +15,151 @@
 <meta property="og:image" content="https://leon-3647.github.io/squashsense/assets/hero.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="1200">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles/main.css?v=20261010-evidence1">
-<script type="module" src="js/main.js?v=20261010-evidence1"></script>
+<link rel="stylesheet" href="styles/main.css?v=20261011-en">
+<script type="module" src="js/main.js?v=20261011-en"></script>
 </head>
 <body>
-<a class="skip-link" href="#overview" data-i18n="skip">跳转到内容</a>
+<a class="skip-link" href="#overview">Skip to content</a>
 <header class="site-header">
   <a class="brand" href="#" aria-label="SquashSense"><span class="brand-icon">s<span>•</span></span>SquashSense</a>
-  <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单" data-i18n-aria="menuOpen"><span></span><span></span><span></span></button>
-  <nav id="site-nav" aria-label="主导航" data-i18n-aria="navLabel">
-    <a href="#overview" data-i18n="navOverview">项目概览</a>
-    <a href="#demo" data-i18n="navDemo">实测演示</a>
-    <a href="#how" data-i18n="navHow">工作原理</a>
-    <a href="#testing" data-i18n="navTesting">测试与局限</a>
-    <a href="#development" data-i18n="navDevelopment">开发过程</a>
-    <a href="#specs" data-i18n="navSpecs">参数与问答</a>
-    <a href="#author" data-i18n="navAuthor">关于 Leon</a>
-    <a href="#docs" data-i18n="navDocs">资料</a>
+  <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav id="site-nav" aria-label="Main navigation">
+    <a href="#overview">Overview</a>
+    <a href="#demo">Demo</a>
+    <a href="#how">How it works</a>
+    <a href="#testing">Testing</a>
+    <a href="#development">Development</a>
+    <a href="#specs">Specs &amp; FAQ</a>
+    <a href="#author">About Leon</a>
+    <a href="#docs">Docs</a>
   </nav>
-  <button class="lang-switch" type="button" aria-label="Switch to English"><span class="language-icon">◎</span><span id="lang-label">EN</span></button>
+  <a class="header-link" href="https://github.com/leon-3647/squashsense" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
 </header>
 <main>
 
 <!-- 1. Overview -->
 <section class="hero" id="overview">
   <div class="hero-copy">
-    <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">学生自制 · 训练研究原型</span></div>
-    <h1 data-i18n-html="heroTitle">用球拍运动数据<br>和身体追踪，<br><span>复盘你的挥拍。</span></h1>
-    <p class="hero-description" data-i18n="heroDescription">SquashSense 是我做的一个原型，目的是同时从两个角度看一次壁球挥拍：球拍握柄末端的一枚小型运动传感器记录球拍移动和转动的速度；场边一台小电脑上的摄像头追踪身体并估算关节角度。软件把两路数据放到同一条时间线上，训练结束后，你可以对着数字和画面一起回看一次挥拍，而不只是依靠自己或教练的记忆。</p>
+    <div class="eyebrow"><span class="eyebrow-line"></span><span>STUDENT-BUILT TRAINING RESEARCH PROTOTYPE</span></div>
+    <h1>Review your swing with racket motion<br><span>and body tracking.</span></h1>
+    <p class="hero-description">SquashSense is a prototype I built to look at a squash swing from two sides at once. A small motion sensor on the end of the racket grip records how fast the racket moves and turns. A camera on a small computer at the side of the court tracks the body and estimates joint angles. The software puts both on one timeline, so after a session you can look at a swing with numbers and video together instead of relying only on what you or a coach remember.</p>
     <div class="hero-actions">
-      <a class="button button-lime" href="#demo"><span class="play-small">▶</span><span data-i18n="watchDemo">看一次实测</span></a>
-      <a class="text-link" href="#how"><span data-i18n="exploreSensor">它是怎么工作的</span><span>↗</span></a>
+      <a class="button button-lime" href="#demo"><span class="play-small">▶</span><span>See a recorded test</span></a>
+      <a class="text-link" href="#how"><span>How it works</span><span>↗</span></a>
     </div>
-    <div class="hero-tech"><span data-i18n="heroTechA">球拍传感器 + 摄像头</span><span data-i18n="heroTech">同一条时间线 · 训练后复盘</span></div>
+    <div class="hero-tech"><span>RACKET SENSOR + CAMERA</span><span>One timeline · Reviewed after training</span></div>
   </div>
   <div class="hero-visual">
-    <img src="assets/hero.jpg" alt="壁球场内，场边立着摄像头单元，球员正在挥拍" data-i18n-alt="heroAlt" fetchpriority="high" width="1600" height="1200">
+    <img src="assets/hero.jpg" alt="Inside a squash court: the camera unit stands at the side wall while a player swings" fetchpriority="high" width="1600" height="1200">
     <div class="visual-shade"></div>
-    <div class="visual-topline"><span class="small-cross">+</span><span data-i18n="heroVisualLabel">球场实测</span><span class="visual-number">2026 · 08</span></div>
-    <div class="hero-caption"><span class="caption-symbol">⌁</span><div><span class="caption-title" data-i18n="heroCaption">场边的摄像头，球拍上的传感器。</span><span class="caption-sub" data-i18n="heroCaptionSub">SquashSense · 学生研究原型，不是产品</span></div></div>
+    <div class="visual-topline"><span class="small-cross">+</span><span>COURT TEST</span><span class="visual-number">2026 · 08</span></div>
+    <div class="hero-caption"><span class="caption-symbol">⌁</span><div><span class="caption-title">Camera beside the court, sensor on the racket.</span><span class="caption-sub">SquashSense · student research prototype, not a product</span></div></div>
     <div class="image-corner corner-tl"></div><div class="image-corner corner-br"></div>
   </div>
-  <div class="hero-bottom"><span data-i18n="heroBottom">下面依次是：实测演示、工作原理、测试与局限、开发过程、参数问答。</span><a href="#demo"><span data-i18n="scrollExplore">向下查看</span><span>↓</span></a></div>
+  <div class="hero-bottom"><span>Below, in order: the demo, how it works, testing and limitations, development, specs and FAQ.</span><a href="#demo"><span>Scroll down</span><span>↓</span></a></div>
 </section>
 
 <!-- 2. Demonstration -->
 <section class="demo-section" id="demo">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">01 /</span><span data-i18n="demoEyebrow">实测演示 · 2026 年 8 月 27 日</span></div><h2 data-i18n-html="demoTitle">一次记录下来的训练，<br><span>逐步解释。</span></h2></div>
-    <p data-i18n="demoDescription">这段两分钟的视频是训练界面的录屏，来自 2026 年 8 月 27 日的一次自由击球训练（22 分钟，软件识别出 197 次挥拍，只有我一个人在打）。界面是中文的；下面的分步说明解释屏幕上有什么，图例翻译各个标签。录像里的数值来自这一版原型，没有和任何参考测量方法比对过。</p>
+    <div><div class="eyebrow"><span class="section-index">01 /</span><span>RECORDED TEST · 27 AUGUST 2026</span></div><h2>One recorded session, <span>explained step by step.</span></h2></div>
+    <p>The two-minute clip is a screen recording of the training interface during a free-hitting session on 27 August 2026 (22 minutes, 197 swings detected by the software, one player: me). The prototype’s interface is in Chinese; the walkthrough below explains what is on screen and the legends translate every label. The numbers in the recording come from this prototype build and have not been checked against any reference measurement.</p>
   </div>
   <div class="video-shell" data-video-shell>
-    <video id="training-video" controls playsinline preload="none" poster="assets/video-poster.jpg?v=20261010-evidence1" aria-label="SquashSense 训练界面录屏，2026 年 8 月 27 日" data-i18n-aria="videoLabel" width="1920" height="1080">
+    <video id="training-video" controls playsinline preload="none" poster="assets/video-poster.jpg?v=20261011-en" aria-label="Screen recording of the SquashSense training interface, 27 August 2026" width="1920" height="1080">
       <source src="assets/training-demo.mp4?v=20261004-video16x9" type="video/mp4">
-      <span data-i18n="videoUnsupported">浏览器暂不支持视频播放。</span>
+      <span>Your browser does not support video playback.</span>
     </video>
     <div class="video-overlay" data-overlay>
-      <button class="video-play" id="play-demo" type="button" aria-label="播放训练界面录屏" data-i18n-aria="playDemo"><span class="big-play" aria-hidden="true">▶</span><span data-i18n="videoPlayLabel">播放录屏</span><small>02:00</small></button>
+      <button class="video-play" id="play-demo" type="button" aria-label="Play the screen recording"><span class="big-play" aria-hidden="true">▶</span><span>Play the recording</span><small>02:00</small></button>
       <span class="video-status" data-status aria-live="polite"></span>
     </div>
   </div>
-  <div class="video-meta"><span data-i18n="videoMeta">训练界面录屏 · 无旁白 · 2026-08-27</span><span data-i18n="videoNote">数值为原型输出，未经验证。</span></div>
-  <p id="video-error" class="media-error" role="status" hidden data-i18n="videoError">视频暂时无法播放。请检查网络后重试。</p>
+  <div class="video-meta"><span>SCREEN RECORDING · NO NARRATION · 2026-08-27</span><span>Values are prototype output and unvalidated.</span></div>
+  <p id="video-error" class="media-error" role="status" hidden>The video could not be played. Check your connection and try again.</p>
 
   <div class="walkthrough">
-    <div class="walkthrough-heading"><h3 data-i18n="walkTitle">跟着一次挥拍看</h3><p data-i18n="walkIntro">下面三张图都截自同一段录像，相隔几秒。视频播不了也能看懂：先看动作，再看球拍信号，最后看两者在同一条时间线上的对应关系。</p></div>
+    <div class="walkthrough-heading"><h3>Following one swing</h3><p>The three images are frames from the same recording, a few seconds apart. They work without the video: first the movement, then the racket signal, then how the two line up on one timeline.</p></div>
 
     <figure class="walk-step">
-      <div class="walk-media"><img src="assets/demo/live-camera.jpg" alt="训练界面中的摄像头画面：球员身上叠加了 MediaPipe 骨架，旁边有关节角度标签，底部的阶段标签显示“加速”" data-i18n-alt="walk1Alt" loading="lazy" width="1004" height="563"></div>
+      <div class="walk-media"><img src="assets/demo/live-camera.jpg" alt="Camera view in the training interface: a MediaPipe skeleton is drawn over the player with joint-angle labels; the phase chip at the bottom reads “acceleration”" loading="lazy" width="1004" height="563"></div>
       <figcaption>
         <span class="walk-index">1</span>
         <div>
-          <h4 data-i18n="walk1Title">动作：摄像头画面与骨架</h4>
-          <p data-i18n="walk1Body">摄像头画面上画着 MediaPipe 识别出的身体骨架，此时处于“加速”阶段。标签里的角度是软件根据 33 个追踪点算出来的估计值，来自单个摄像头的二维画面；界面自己标注了带 * 的角度是图像平面角。</p>
+          <h4>The movement: camera view with the skeleton</h4>
+          <p>The camera frame shows the body skeleton that MediaPipe found, here in the acceleration phase. The angles in the labels are estimates the software computes from the 33 tracked points, from a single camera’s two-dimensional image; the interface itself marks angles measured in the image plane with an asterisk.</p>
           <dl class="legend">
-            <div><dt>肩线旋转 / 髋线旋转</dt><dd data-i18n="walk1L1">肩线、髋线相对画面的转动角度</dd></div>
-            <div><dt>肩角 · 肘角 · 膝角</dt><dd data-i18n="walk1L2">由相邻关节点算出的关节角度</dd></div>
-            <div><dt>躯干倾斜 · 躯干旋转 · 重心</dt><dd data-i18n="walk1L3">躯干姿态估计；“重心 稳定”是软件的判断，不是测量值</dd></div>
-            <div><dt>手腕轨迹 · 近似挥拍路径</dt><dd data-i18n="walk1L4">用手腕点连成的路径，近似代表挥拍路径</dd></div>
-            <div><dt>引拍 · 加速 · 击球点 · 随挥 · 回位</dt><dd data-i18n="walk1L5">软件判定的挥拍阶段，高亮的是当前阶段</dd></div>
-            <div><dt>LIVE · 16 FPS · MediaPipe 追踪正常</dt><dd data-i18n="walk1L6">实时画面；每秒处理 16 帧；姿态追踪状态正常</dd></div>
+            <div><dt>Shoulder-line / hip-line rotation <small>肩线旋转 / 髋线旋转</small></dt><dd>Rotation of the shoulder line and the hip line relative to the camera image, in degrees</dd></div>
+            <div><dt>Shoulder, elbow and knee angles <small>肩角 · 肘角 · 膝角</small></dt><dd>Joint angles computed from neighbouring landmarks, in degrees</dd></div>
+            <div><dt>Trunk lean · trunk rotation · balance <small>躯干倾斜 · 躯干旋转 · 重心</small></dt><dd>Trunk posture estimates; "balance: stable" (重心 稳定) is a software judgement, not a measurement</dd></div>
+            <div><dt>Wrist path (approximate swing path) <small>手腕轨迹 · 近似挥拍路径</small></dt><dd>A line drawn through the wrist landmark over recent frames, used as a stand-in for the racket path</dd></div>
+            <div><dt>Phase chips <small>引拍 · 加速 · 击球点 · 随挥 · 回位</small></dt><dd>Swing phases assigned by the software: backswing, acceleration, contact, follow-through, recovery. The highlighted chip is the current phase</dd></div>
+            <div><dt>LIVE · 16 FPS · tracking normal <small>LIVE · 16 FPS · MediaPipe 追踪正常</small></dt><dd>Live camera view processed at 16 frames per second; pose tracking reported as normal</dd></div>
           </dl>
         </div>
       </figcaption>
     </figure>
 
     <figure class="walk-step">
-      <div class="walk-media"><img src="assets/demo/imu-chart.jpg" alt="“Racket Sensor — Live IMU Data”卡片：最近 10 秒的三轴角速度曲线，编号 #59 到 #63 的五次挥拍用不同颜色标出阶段，橙色竖线是估计击球点" data-i18n-alt="walk2Alt" loading="lazy" width="1002" height="615"></div>
+      <div class="walk-media"><img src="assets/demo/imu-chart.jpg" alt="“Racket Sensor — Live IMU Data” card: three-axis angular velocity over the last 10 seconds, swings #59 to #63 shaded by phase, orange vertical lines at the estimated contact moments" loading="lazy" width="1002" height="615"></div>
       <figcaption>
         <span class="walk-index">2</span>
         <div>
-          <h4 data-i18n="walk2Title">球拍信号：最近 10 秒的陀螺仪曲线</h4>
-          <p data-i18n="walk2Body">这是球拍传感器的实时角速度（单位 °/s，三个轴）。每次挥拍有编号（#59–#63），底色按阶段分段；橙色竖线是软件估计的击球瞬间，虚线是角速度峰值。能直接读出来的东西：这个练习里大约每 1.5 秒一次挥拍，蓝色轴的负向峰值接近 −2000 °/s，引拍和随挥各占了多长时间。</p>
+          <h4>The racket signal: the last 10 seconds of gyroscope data</h4>
+          <p>This is the racket sensor’s live angular velocity (°/s, three axes). Each swing is numbered (#59–#63) and shaded by phase; the orange line is the software’s estimated contact moment and the dashed line is the angular-velocity peak. What can be read directly: in this drill a swing comes roughly every 1.5 seconds, the blue axis peaks close to −2000 °/s, and the shading shows how long the backswing and follow-through lasted around each contact.</p>
           <dl class="legend">
-            <div><dt>角速度 · 加速度 · 姿态 · 合成量</dt><dd data-i18n="walk2L1">可切换的四种曲线：转动速率、加速度、姿态估计、三轴合成的模长</dd></div>
-            <div><dt>Gx · Gy · Gz</dt><dd data-i18n="walk2L2">陀螺仪三个轴，传感器直接测得</dd></div>
-            <div><dt>击球点（估计）· 角速度峰值</dt><dd data-i18n="walk2L3">软件推断的击球瞬间；传感器测得的峰值时刻</dd></div>
-            <div><dt>IMU · 504 Hz · 1252827 ms</dt><dd data-i18n="walk2L4">传感器链路：实际计得的采样率；后面的毫秒数是两个时钟的偏移量，不是真实延迟（见“测试与局限”）</dd></div>
-            <div><dt>未设置中立姿态</dt><dd data-i18n="walk2L5">这次训练没有记录中立姿态，所以所有基于姿态的数值没有参考基准</dd></div>
-            <div><dt>MediaPipe · 追踪正常 81% · 同步 89% · 偏移 0 ms</dt><dd data-i18n="walk2L6">姿态追踪置信度；软件给出的同步质量与时钟偏移估计</dd></div>
+            <div><dt>Trace tabs <small>角速度 · 加速度 · 姿态 · 合成量</small></dt><dd>Four switchable traces: rotation rate, acceleration, orientation estimate, and the magnitude of the three axes</dd></div>
+            <div><dt>Gx · Gy · Gz</dt><dd>The three gyroscope axes, measured directly by the sensor</dd></div>
+            <div><dt>Estimated contact · angular-velocity peak <small>击球点（估计）· 角速度峰值</small></dt><dd>Contact moment inferred by the software (orange line); peak moment measured by the sensor (dashed line)</dd></div>
+            <div><dt>IMU · 504 Hz · 1252827 ms</dt><dd>Sensor link status: the sample rate actually counted; the millisecond figure after it is an offset between two clocks, not a real delay (see Testing)</dd></div>
+            <div><dt>Neutral pose not set <small>未设置中立姿态</small></dt><dd>This session never recorded a neutral pose, so every orientation-based value lacks a reference</dd></div>
+            <div><dt>Tracking 81% · sync 89% · offset 0 ms <small>MediaPipe · 追踪正常 81% · 同步 89% · 偏移 0 ms</small></dt><dd>Pose-tracking confidence, and the software’s own sync-quality and clock-offset estimate</dd></div>
           </dl>
         </div>
       </figcaption>
     </figure>
 
     <figure class="walk-step">
-      <div class="walk-media"><img src="assets/demo/sync-timeline.jpg" alt="“同步分析时间轴”卡片：第 97/97 次挥拍在击球点处的数值，视频区域为黑色并提示“此刻无姿态帧（不插值）”" data-i18n-alt="walk3Alt" loading="lazy" width="1515" height="570"></div>
+      <div class="walk-media"><img src="assets/demo/sync-timeline.jpg" alt="“Synchronized analysis timeline” card: values for swing 97 of 97 at its contact point; the video area is black with the note “no pose frame at this moment (not interpolated)”" loading="lazy" width="1515" height="570"></div>
       <figcaption>
         <span class="walk-index">3</span>
         <div>
-          <h4 data-i18n="walk3Title">同一条时间线：第 97 次挥拍的击球瞬间</h4>
-          <p data-i18n="walk3Body">同步分析时间轴把视频、骨架、手腕路径、陀螺仪/加速度、阶段和击球点放在一个时间游标上。图中停在第 97 次挥拍的击球点：挥拍开始后 0.848 秒，角速度模长 1361 °/s，去重力后的加速度 7.6 g，以及六个轴的原始读数。视频区域是黑的：这次训练摄像头跑在场边电脑上，不把画面回传给浏览器里的时间轴；而且软件在没有姿态帧的时刻不做插值（“此刻无姿态帧（不插值）”），宁可空着也不编造。</p>
-          <p class="walk-note" data-i18n="walk3Note">球员或教练可以看什么：球拍峰值速度出现在身体转动峰值之前还是之后（这是我设计的时序检查）、重复挥拍之间峰值角速度稳不稳定、随挥持续了多久。至于这些该不该改，是教练的判断；原型本身不能证明哪种动作更好。</p>
+          <h4>One timeline: the contact moment of swing 97</h4>
+          <p>The synchronized timeline puts video, skeleton, wrist path, gyroscope and accelerometer, phase and contact point under one time cursor. Here it is stopped at the contact point of swing 97: 0.848 s into the swing, angular-velocity magnitude 1361 °/s, 7.6 g of acceleration with gravity removed, and the six raw axes. The video area is black: in this session the camera ran on the courtside computer, which does not send frames back to the browser timeline, and the software refuses to interpolate a pose frame when none was captured at that instant (the on-screen note reads "no pose frame at this moment, not interpolated", 此刻无姿态帧（不插值）). It leaves the gap rather than inventing one.</p>
+          <p class="walk-note">What a player or coach could examine: whether the racket’s peak speed comes before or after the body’s rotation peaks (the timing check I designed it for), how stable the peak angular velocity is across repeated swings, and how long the follow-through lasts. Whether any of that should change is a coaching judgement; the prototype does not establish that one movement is better than another.</p>
         </div>
       </figcaption>
     </figure>
   </div>
 
   <div class="metric-guide">
-    <div class="walkthrough-heading"><h3 data-i18n="metricTitle">界面右侧的数据卡片是什么意思</h3><p data-i18n-html="metricIntro">每张卡片右上角的标签说明来源：<b>IMU</b> 来自球拍传感器，<b>融合</b> 来自传感器与摄像头的组合，<b>链路</b> 是连接状态。下表说明每个数值怎么得到、现在处于什么状态。</p></div>
+    <div class="walkthrough-heading"><h3>What the cards on the right of the interface mean</h3><p>The tag in each card’s corner gives the source: <b>IMU</b> from the racket sensor, <b>fusion</b> (融合) from sensor and camera combined, <b>link</b> (链路) for connection status. The table says how each value is obtained and where it stands.</p></div>
     <div class="metric-layout">
-      <div class="metric-photo"><img src="assets/demo/metric-cards.jpg" alt="训练界面右侧的数据卡片：挥拍速度、击球冲击、拍面角度、动作评分、角速度、动态加速度、挥拍次数、挥拍节奏、挥拍一致性、传感器采样率、数据延迟" data-i18n-alt="metricAlt" loading="lazy" width="495" height="823"></div>
+      <div class="metric-photo"><img src="assets/demo/metric-cards.jpg" alt="Metric cards on the right of the training interface: swing speed, impact, racket-face angle, movement score, angular velocity, dynamic acceleration, swing count, swing rhythm, consistency, sensor sample rate, data latency" loading="lazy" width="495" height="823"></div>
       <table class="metric-table">
-        <thead><tr><th data-i18n="mtH1">卡片</th><th data-i18n="mtH2">怎么得到</th><th data-i18n="mtH3">状态</th></tr></thead>
+        <thead><tr><th>Card</th><th>How it is obtained</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><th>挥拍速度 <small>km/h</small></th><td data-i18n="m1How">软件由传感器的角速度换算得到；换算方法和它的假设没有在本页记录</td><td class="status-bad" data-i18n="m1St">未验证。录像里出现过 261.7 km/h（+579%），对球拍来说不合理</td></tr>
-          <tr><th>击球冲击 <small>m/s²</small></th><td data-i18n="m2How">判定击球瞬间附近的加速度峰值（传感器）</td><td class="status-warn" data-i18n="m2St">未验证</td></tr>
-          <tr><th>拍面角度 <small>°</small></th><td data-i18n="m3How">传感器相对“中立姿态”的朝向估计；这次训练没有记录中立姿态</td><td class="status-bad" data-i18n="m3St">不是真实拍面角度；传感器单独估计的朝向会随时间漂移</td></tr>
-          <tr><th>动作评分</th><td data-i18n="m4How">软件把若干子项合成的分数</td><td class="status-warn" data-i18n="m4St">实验性，没有验证过它与动作质量的关系</td></tr>
-          <tr><th>当前 / 峰值角速度 <small>°/s · IMU</small></th><td data-i18n="m5How">陀螺仪三轴合成的模长，是传感器直接量</td><td class="status-ok" data-i18n="m5St">已演示的测量量；精度没有和参考仪器比对</td></tr>
-          <tr><th>峰值动态加速度 <small>g · IMU</small></th><td data-i18n="m6How">加速度计读数去掉重力分量后的峰值</td><td class="status-ok" data-i18n="m6St">已演示；未验证</td></tr>
-          <tr><th>挥拍次数 <small>融合</small></th><td data-i18n="m7How">软件挥拍检测器计数：持续加速 + 接近峰值速度时的冲击</td><td class="status-ok" data-i18n="m7St">在真实挥拍上运行过；没有和人工计数比对。同一屏上的“已识别挥拍”和这张卡片数字不同，说明两个计数器口径不一致</td></tr>
-          <tr><th>挥拍节奏 <small>次/分 · 融合</small></th><td data-i18n="m8How">挥拍频率的变化</td><td class="status-bad" data-i18n="m8St">录像里一直是负数（−3.0 到 −6.4），所以显示的不是简单的频率；按未验证处理</td></tr>
-          <tr><th>挥拍一致性 <small>分 · CV · IMU</small></th><td data-i18n="m9How">由多次挥拍峰值速度的变异系数（CV）换算的分数</td><td class="status-warn" data-i18n="m9St">实验性；训练刚开始挥拍少时读数为 0、CV 174%</td></tr>
-          <tr><th>传感器采样率 <small>Hz · 链路</small></th><td data-i18n="m10How">接收端软件实际计数</td><td class="status-ok" data-i18n="m10St">配置 500 Hz，实测约 504 Hz</td></tr>
-          <tr><th>数据延迟 <small>ms · 链路</small></th><td data-i18n="m11How">传感器时间戳与电脑时钟的差值</td><td class="status-bad" data-i18n="m11St">显示的约 1,252,800 ms 是两个时钟基准的偏移，不是真实延迟；这一版界面没有把它扣掉</td></tr>
-          <tr><th>AI 实时反馈</th><td data-i18n="m12How">软件按阈值规则从上面的数值生成的短句，例如“拍面角度 111.9° 偏大，注意固定手腕”</td><td class="status-bad" data-i18n="m12St">未验证的建议，没有和教练判断比对过</td></tr>
+          <tr><th>Swing speed <small>挥拍速度 · km/h</small></th><td>Derived by the software from the sensor’s angular velocity; the conversion method and its assumptions are not documented on this page</td><td class="status-bad">Unvalidated. The recording shows 261.7 km/h (+579%) at one point, which is not plausible for a racket</td></tr>
+          <tr><th>Impact <small>击球冲击 · m/s²</small></th><td>Peak acceleration around the detected contact (sensor)</td><td class="status-warn">Unvalidated</td></tr>
+          <tr><th>“Racket-face angle” <small>拍面角度 · °</small></th><td>Orientation estimate from the sensor relative to a neutral pose; the neutral pose was not recorded in this session</td><td class="status-bad">Not a true face angle; sensor-only orientation also drifts over time</td></tr>
+          <tr><th>Movement score <small>动作评分</small></th><td>A software score combining several sub-scores</td><td class="status-warn">Experimental; its relation to movement quality has not been validated</td></tr>
+          <tr><th>Current / peak angular velocity <small>当前 / 峰值角速度 · °/s · IMU</small></th><td>Magnitude of the three gyroscope axes, a direct sensor quantity</td><td class="status-ok">Demonstrated measurement; accuracy not checked against a reference instrument</td></tr>
+          <tr><th>Peak dynamic acceleration <small>峰值动态加速度 · g · IMU</small></th><td>Accelerometer reading with the gravity component removed</td><td class="status-ok">Demonstrated; unvalidated</td></tr>
+          <tr><th>Swing count <small>挥拍次数 · fusion</small></th><td>The software’s swing detector: sustained acceleration plus a shock near peak speed</td><td class="status-ok">Runs on real swings; not checked against a manual count. The header’s "swings recognised" counter (已识别挥拍) and this card disagree on the same screen, so the two counters use different rules</td></tr>
+          <tr><th>Swing rhythm <small>挥拍节奏 · swings/min · fusion</small></th><td>Change in swing rate</td><td class="status-bad">Negative throughout the recording (−3.0 to −6.4), so the display is not a plain rate; treat as unvalidated</td></tr>
+          <tr><th>Consistency <small>挥拍一致性 · score · CV · IMU</small></th><td>A score derived from the coefficient of variation (CV) of peak speed across swings</td><td class="status-warn">Experimental; reads 0 with CV 174% early in the session when few swings exist</td></tr>
+          <tr><th>Sensor sample rate <small>传感器采样率 · Hz · link</small></th><td>Counted by the receiving software</td><td class="status-ok">Configured 500 Hz; about 504 Hz measured</td></tr>
+          <tr><th>Data latency <small>数据延迟 · ms · link</small></th><td>Difference between the sensor’s timestamp and the computer’s clock</td><td class="status-bad">The ~1,252,800 ms shown is an offset between the two clock references, not a real delay; this build does not subtract it</td></tr>
+          <tr><th>“AI live feedback” <small>AI 实时反馈</small></th><td>Short messages the software generates from threshold rules on the values above, e.g. "face angle 111.9°, too open; keep the wrist fixed" (拍面角度 111.9° 偏大，注意固定手腕)</td><td class="status-bad">Unvalidated advice; never compared with a coach’s judgement</td></tr>
         </tbody>
       </table>
     </div>
     <figure class="report-figure">
-      <img src="assets/demo/session-report.jpg" alt="训练结束后的报告页：综合评分 75，子项挥拍速度 98、动作规范 59、身体协调 85、稳定性 56，右侧能力雷达图，下方挥拍类型统计" data-i18n-alt="reportAlt" loading="lazy" width="1515" height="650">
-      <figcaption data-i18n="reportCaption">训练结束时生成的报告：综合评分 75，子项分数，雷达图，以及挥拍类型统计。这次 197 次挥拍里，软件把 65 次归为发球、8 次正手、4 次反手，约 120 次未分类——而这是一次自由击球练习。分类器目前不可靠，正反手区分还需要校准传感器安装方向。报告里的“优先改进 / 保持优势 / 下次目标”同样是规则生成的文字，不是教练意见。</figcaption>
+      <img src="assets/demo/session-report.jpg" alt="Session report page: overall score 75, sub-scores swing speed 98, form 59, coordination 85, stability 56, a radar chart on the right and swing-type statistics below" loading="lazy" width="1515" height="650">
+      <figcaption>The report generated at the end of the session: overall score 75, sub-scores, a radar chart and swing-type statistics. Of the 197 swings, the software labelled 65 as serves, 8 as forehands, 4 as backhands and left about 120 unclassified — in a free-hitting drill. The classifier is not reliable yet; separating forehand from backhand needs the sensor’s mounting orientation to be calibrated. The “priority / strength / next target” cards in the report are rule-generated text, not a coach’s opinion.</figcaption>
     </figure>
   </div>
 </section>
@@ -168,111 +167,111 @@
 <!-- 3. How it works -->
 <section class="approach section-light" id="how">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">02 /</span><span data-i18n="howEyebrow">工作原理</span></div><h2 data-i18n-html="howTitle">三个部分，<br><span>一条时间线。</span></h2></div>
-    <p data-i18n="howDescription">整套系统跑在局域网里：传感器通过无线把数据发给插在场边电脑上的接收器，摄像头接在同一台电脑上，训练界面是一个网页，用同一网络里的笔记本电脑打开。先说清楚每个部分测什么、算什么，再说组件名称。</p>
+    <div><div class="eyebrow"><span class="section-index">02 /</span><span>HOW IT WORKS</span></div><h2>Three parts,<br><span>one timeline.</span></h2></div>
+    <p>Everything runs on the local network: the sensor sends its data wirelessly to a receiver plugged into the courtside computer, the camera connects to the same computer, and the training interface is a web page opened on a laptop on the same network. What each part measures or computes comes first; component names come after.</p>
   </div>
   <div class="capabilities">
     <article>
       <span class="stat-value">500<span>Hz</span></span>
-      <h3 data-i18n="stat1Title">球拍传感器</h3>
-      <p data-i18n="stat1Description">握柄末端的一个短圆柱里装着一块 ESP32-S3 微控制器板和一颗 ICM42688 六轴惯性测量单元（IMU，即三轴加速度计加三轴陀螺仪）。它每秒 500 次测量加速度和转动速率（这是配置值；录像那次训练里接收端实际计得约 504 Hz），通过 ESP-NOW（一种基于 Wi-Fi 的短距离协议）发给电脑上的 USB 接收器。</p>
-      <span class="stat-foot" data-i18n="stat1Note">直接测量：加速度 · 转动速率</span>
+      <h3>Racket sensor</h3>
+      <p>A short cylinder at the end of the grip holds an ESP32-S3 microcontroller board and an ICM42688 six-axis inertial measurement unit (IMU: a three-axis accelerometer plus a three-axis gyroscope). It measures acceleration and rotation rate 500 times a second (the configured rate; during the recorded session the receiver counted about 504 Hz) and sends packets over ESP-NOW, a short-range Wi-Fi-based protocol, to a USB receiver on the computer.</p>
+      <span class="stat-foot">MEASURES DIRECTLY: ACCELERATION · ROTATION RATE</span>
     </article>
     <article>
-      <span class="stat-value">33<span data-i18n="landmarksUnit">个点</span></span>
-      <h3 data-i18n="stat2Title">身体追踪</h3>
-      <p data-i18n="stat2Description">一个接在场边电脑上的摄像头。Google 的 MediaPipe Pose 模型在每一帧里找出 33 个身体关键点；SquashSense 自己的代码再把这些点变成关节角度标签、手腕路径和阶段标签。录像里摄像头的处理速度是每秒 14–16 帧。</p>
-      <span class="stat-foot" data-i18n="stat2Note">关键点：MediaPipe（Google）· 角度与阶段：SquashSense</span>
+      <span class="stat-value">33<span>points</span></span>
+      <h3>Body tracking</h3>
+      <p>A camera connected to the courtside computer. Google’s MediaPipe Pose model finds 33 body landmarks in each frame; SquashSense’s own code turns those points into the joint-angle labels, the wrist path and the phase chips. In the recording the camera was processed at 14–16 frames per second.</p>
+      <span class="stat-foot">LANDMARKS: MEDIAPIPE (GOOGLE) · ANGLES AND PHASES: SQUASHSENSE</span>
     </article>
     <article>
       <span class="stat-value stat-text">ROCK 5C</span>
-      <h3 data-i18n="stat3Title">场边电脑</h3>
-      <p data-i18n="stat3Description">一块 Radxa ROCK 5C 单板电脑，装在紫色外壳里，摄像头固定在外壳正面，整体用吸盘吸在球场玻璃上。它运行姿态模型、接收传感器数据流、检测挥拍、对齐两路时钟，并提供网页界面。</p>
-      <span class="stat-foot" data-i18n="stat3Note">检测 · 对齐 · 提供界面</span>
+      <h3>Courtside computer</h3>
+      <p>A Radxa ROCK 5C single-board computer in a purple enclosure, with the camera fixed to its front, held to the court glass by a suction mount. It runs the pose model, receives the sensor stream, detects swings, aligns the two clocks and serves the web interface.</p>
+      <span class="stat-foot">DETECT · ALIGN · SERVE THE INTERFACE</span>
     </article>
   </div>
-  <div class="signal-path"><span><b data-i18n="pathSensor">球拍传感器</b><small>ESP-NOW → USB</small></span><i>↘</i><span class="path-center"><b>SquashSense</b><small data-i18n="pathCenter">对齐 · 检测 · 复盘</small></span><i>↙</i><span><b data-i18n="pathCamera">摄像头</b><small data-i18n="pathCameraSmall">视频帧 → 33 个关键点</small></span></div>
+  <div class="signal-path"><span><b>Racket sensor</b><small>ESP-NOW → USB</small></span><i>↘</i><span class="path-center"><b>SquashSense</b><small>Align · Detect · Review</small></span><i>↙</i><span><b>Camera</b><small>Video frames → 33 landmarks</small></span></div>
 
   <div class="method-grid">
     <article>
-      <h3 data-i18n="method1Title">挥拍是怎么被检测到的</h3>
-      <p data-i18n="method1Body">软件找的是球拍的持续加速，而不是固定的速度阈值（早期版本用固定阈值，漏掉了慢而紧凑的挥拍）。当加速度计上出现冲击、同时球拍仍接近峰值速度时，判定为击球。阶段（引拍、加速、击球点、随挥、回位）是事后根据球拍改变方向的时刻划分的。</p>
+      <h3>How a swing is detected</h3>
+      <p>The software looks for sustained acceleration of the racket rather than a fixed speed threshold (an earlier version used thresholds and missed slow, compact swings). Contact is marked when a shock appears on the accelerometer while the racket is still near peak speed. The phases — backswing, acceleration, contact, follow-through, recovery — are assigned afterwards from the moments where the racket changes direction.</p>
     </article>
     <article>
-      <h3 data-i18n="method2Title">两路数据怎么对齐</h3>
-      <p data-i18n="method2Body">传感器、电脑和浏览器各有自己的时钟，无线数据还会晚到或丢包。软件用观察到的最快一次送达来对齐时钟，随着漂移一点点修正偏移量，并把剩余的不确定度显示在界面上，而不是藏起来。</p>
+      <h3>How the two streams are aligned</h3>
+      <p>The sensor, the computer and the browser each keep their own clock, and wireless packets arrive late or go missing. The software aligns the clocks on the fastest delivery it has observed, nudges the offset gradually as the clocks drift, and shows the remaining uncertainty in the interface instead of hiding it.</p>
     </article>
     <article class="method-note">
-      <p data-i18n="methodNote">以上两段是我在项目介绍视频里的描述。本页没有独立核对应用程序和固件代码，这些说明应视为作者陈述，而不是经过第三方验证的实现细节。</p>
+      <p>Both paragraphs are my own description from the project introduction video. This page did not independently inspect the application and firmware code, so treat them as the author’s account rather than third-party-verified implementation details.</p>
     </article>
   </div>
 
   <div class="installation-block">
-    <div class="walkthrough-heading"><h3 data-i18n="installTitle">传感器装在哪里</h3><p data-i18n="installIntro">左边是安装位置的示意动画（外形不按比例），右边是实物照片和三步安装流程。</p></div>
+    <div class="walkthrough-heading"><h3>Where the sensor goes</h3><p>Left: an animated sketch of the mounting position (not to scale). Right: the actual prototype and the three setup steps.</p></div>
     <div class="installation-layout">
       <div class="installation-view">
-        <div class="canvas-top"><span data-i18n="installView">安装示意</span><span class="mono">RACKET SENSOR / 01</span></div>
-        <canvas id="installation-canvas" role="img" aria-label="三维安装示意：红黑配色的壁球拍，圆柱形传感器从握柄下方移动并固定到拍柄底部" data-i18n-aria="canvasAlt"></canvas>
-        <span class="canvas-label" data-i18n="canvasLabel">拍柄底部 · 手握位置之外</span>
-        <div class="canvas-bottom"><span data-i18n="installDisclaimer">外形与安装位置示意，非精确尺寸模型</span><button class="replay-button" id="replay-install" type="button"><span aria-hidden="true">↻</span><span data-i18n="replay">重播动画</span></button></div>
+        <div class="canvas-top"><span>MOUNTING SKETCH</span><span class="mono">RACKET SENSOR / 01</span></div>
+        <canvas id="installation-canvas" role="img" aria-label="3D sketch: a red and black squash racket; a small cylindrical sensor moves up from below the grip and attaches to the butt end"></canvas>
+        <span class="canvas-label">BUTT END OF THE GRIP · BELOW THE HAND</span>
+        <div class="canvas-bottom"><span>Shape and mounting position only; not to scale.</span><button class="replay-button" id="replay-install" type="button"><span aria-hidden="true">↻</span><span>Replay</span></button></div>
         <div class="animation-progress"><span id="animation-progress"></span></div>
       </div>
       <div class="installation-info">
-        <div class="sensor-photo"><img src="assets/installation.jpg" alt="在球拍握柄底部安装圆柱形传感器的近景" data-i18n-alt="sensorPhotoAlt" loading="lazy" width="1600" height="1200"><span data-i18n="realPrototype">实物原型</span></div>
-        <div class="installation-steps" role="group" aria-label="安装步骤" data-i18n-aria="stepsLabel">
-          <button class="step active" type="button" data-step="0" aria-pressed="true"><span class="step-number">01</span><span><strong data-i18n="step1Title">对准拍柄底部</strong><small data-i18n="step1Description">圆柱传感器与握柄末端对齐。</small></span><i aria-hidden="true">↗</i></button>
-          <button class="step" type="button" data-step="1" aria-pressed="false"><span class="step-number">02</span><span><strong data-i18n="step2Title">贴合并固定</strong><small data-i18n="step2Description">将装置稳固安装在拍柄底部，手握的位置不变。</small></span><i aria-hidden="true">↗</i></button>
-          <button class="step" type="button" data-step="2" aria-pressed="false"><span class="step-number">03</span><span><strong data-i18n="step3Title">静置校准，记录中立姿态</strong><small data-i18n="step3Description">先把球拍静置完成传感器校准，再在训练界面记录一次中立姿态。漏掉第二步，姿态类数值就没有基准。</small></span><i aria-hidden="true">↗</i></button>
+        <div class="sensor-photo"><img src="assets/installation.jpg" alt="Close-up of fitting the cylindrical sensor to the butt end of the racket grip" loading="lazy" width="1600" height="1200"><span>ACTUAL PROTOTYPE</span></div>
+        <div class="installation-steps" role="group" aria-label="Setup steps">
+          <button class="step active" type="button" data-step="0" aria-pressed="true"><span class="step-number">01</span><span><strong>Align with the grip end</strong><small>Line the cylindrical sensor up with the butt end of the grip.</small></span><i aria-hidden="true">↗</i></button>
+          <button class="step" type="button" data-step="1" aria-pressed="false"><span class="step-number">02</span><span><strong>Attach securely</strong><small>Fix the unit to the end of the grip; where the hand sits does not change.</small></span><i aria-hidden="true">↗</i></button>
+          <button class="step" type="button" data-step="2" aria-pressed="false"><span class="step-number">03</span><span><strong>Hold still, then record a neutral pose</strong><small>Keep the racket still for the sensor calibration, then record a neutral pose in the interface. Skip the second step and the orientation-based values have no reference.</small></span><i aria-hidden="true">↗</i></button>
         </div>
         <div class="installation-status" aria-live="polite" id="installation-status"></div>
       </div>
     </div>
-    <div class="sensor-specs"><span>ESP32-S3</span><span>ICM42688</span><span data-i18n="sixAxis">六轴 IMU（加速度 + 陀螺仪）</span><span data-i18n="wireless">ESP-NOW 无线 → USB 接收器</span></div>
+    <div class="sensor-specs"><span>ESP32-S3</span><span>ICM42688</span><span>Six-axis IMU (accelerometer + gyroscope)</span><span>ESP-NOW wireless → USB receiver</span></div>
   </div>
 </section>
 
 <!-- 4. Testing and limitations -->
 <section class="testing-section" id="testing">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">03 /</span><span data-i18n="testEyebrow">测试与局限</span></div><h2 data-i18n-html="testTitle">测试过什么，<br><span>没测过什么。</span></h2></div>
-    <p data-i18n="testDescription">SquashSense 是一个能跑起来的原型，不是经过验证的测量系统。这一节把“演示成功”和“测量有效”分开说。</p>
+    <div><div class="eyebrow"><span class="section-index">03 /</span><span>TESTING AND LIMITATIONS</span></div><h2>What has been tested,<br><span>and what hasn’t.</span></h2></div>
+    <p>SquashSense is a working prototype, not a validated measurement system. This section keeps “the demonstration worked” separate from “the measurement is right”.</p>
   </div>
   <div class="test-grid">
     <article>
-      <h3 data-i18n="t1Title">做过的测试</h3>
-      <p data-i18n="t1Body">先在模拟数据上开发，之后在球场上用真实传感器数据流做过少量非正式测试。完整记录下来的只有一次：2026 年 8 月 27 日，自由击球，22 分钟，一名球员（我自己），软件识别出 197 次挥拍。测试没有记日志，所以这里不报场次。</p>
+      <h3>Sessions so far</h3>
+      <p>Development started on simulated data, followed by a small number of informal court sessions with the real sensor stream. Only one session was recorded in full: 27 August 2026, free hitting, 22 minutes, one player (me), 197 swings detected by the software. The sessions were not logged, so no count is quoted here.</p>
     </article>
     <article>
-      <h3 data-i18n="t2Title">参考方法</h3>
-      <p data-i18n="t2Body">没有。没有测速雷达、动作捕捉系统，也没有人工标注过的视频，所以任何指标都没有精度数字。唯一有独立核对的量是采样率：配置 500 Hz，接收端实际计得约 504 Hz。</p>
+      <h3>Reference method</h3>
+      <p>None. No radar gun, motion-capture system or manually labelled video was used, so no accuracy figure exists for any metric. The one quantity with an independent check is the sample rate: configured at 500 Hz, counted at about 504 Hz by the receiver.</p>
     </article>
     <article>
-      <h3 data-i18n="t3Title">视频与传感器的对齐</h3>
-      <p data-i18n="t3Body">按我的描述：用观察到的最快送达对齐时钟，随漂移逐步修正，剩余不确定度显示在界面上。录像里同步状态显示“同步 89% · 偏移 0 ms”，同步时间轴把陀螺仪、加速度、阶段和击球点放在一个游标下。视频帧与传感器峰值之间的实际时间误差：没有测量过。</p>
+      <h3>Aligning video and sensor</h3>
+      <p>As I describe it: the clocks are aligned on the fastest observed delivery, corrected gradually as they drift, and the leftover uncertainty is displayed. In the recording the status chip read "sync 89%, offset 0 ms" (同步 89% · 偏移 0 ms), and the synchronized timeline puts gyroscope, accelerometer, phase and contact under one cursor. The actual timing error between a video frame and the sensor peak has not been measured.</p>
     </article>
     <article class="test-wide">
-      <h3 data-i18n="t4Title">录像里能看到的问题</h3>
+      <h3>Problems visible in the recording</h3>
       <ul>
-        <li data-i18n="t4L1">“数据延迟”整场都显示约 1,252,800 ms——这是传感器时钟和电脑时钟的基准偏移，不是真实送达延迟；这一版界面没有把它扣掉。</li>
-        <li data-i18n="t4L2">“挥拍速度”一度显示 261.7 km/h（+579%），对球拍来说不合理；换算方法需要检查。</li>
-        <li data-i18n="t4L3">训练刚开始时“挥拍一致性”为 0 分、CV 174%，样本太少时这个分数没有意义。</li>
-        <li data-i18n="t4L4">这次训练没有记录中立姿态（状态栏显示“未设置中立姿态”），所以“拍面角度”等基于姿态的数值没有参考基准；传感器单独估计的朝向还会随时间漂移。</li>
-        <li data-i18n="t4L5">挥拍类型分类不可靠：自由击球练习中，197 次挥拍被分成 65 次发球、8 次正手、4 次反手，约 120 次未分类。</li>
-        <li data-i18n="t4L6">同步时间轴没有视频帧：场边电脑上的摄像头不把画面回传给浏览器；软件也不在缺帧时插值。</li>
-        <li data-i18n="t4L7">单个摄像头，每秒 14–16 帧，姿态追踪置信度 81–82%；带 * 的角度是图像平面角，不是三维关节角。</li>
+        <li>The “data latency” card reads about 1,252,800 ms for the whole session. That is the offset between the sensor’s clock reference and the computer’s, not a real delivery delay; this build does not subtract it.</li>
+        <li>The swing-speed card shows 261.7 km/h (+579%) at one point, which is not plausible for a racket; the conversion needs checking.</li>
+        <li>Early in the session the consistency score reads 0 with CV 174%; with few swings the score is meaningless.</li>
+        <li>No neutral pose was recorded (the status chip reads "neutral pose not set", 未设置中立姿态), so orientation-based values such as "racket-face angle" have no reference; sensor-only orientation also drifts over time.</li>
+        <li>Swing-type classification is unreliable: in a free-hitting drill, 197 swings came out as 65 serves, 8 forehands, 4 backhands and about 120 unclassified.</li>
+        <li>The synchronized timeline had no video frames: the camera on the courtside computer does not send frames back to the browser, and the software does not interpolate missing pose frames.</li>
+        <li>One camera at 14–16 frames per second with 81–82% tracking confidence; angles marked with an asterisk are image-plane angles, not three-dimensional joint angles.</li>
       </ul>
     </article>
     <article>
-      <h3 data-i18n="t5Title">这次录像能说明什么</h3>
-      <p data-i18n="t5Body">整条链路能在球场上实时跑通：传感器 → 无线 → 电脑 → 浏览器曲线（约 500 Hz）；摄像头 → 关键点 → 角度标签；在真实挥拍上完成检测与阶段划分；训练结束生成报告。</p>
+      <h3>What the recording establishes</h3>
+      <p>The full pipeline runs live on court: sensor → wireless → computer → browser chart at about 500 Hz; camera → landmarks → angle labels; swing detection and phase assignment on real swings; a session report at the end.</p>
     </article>
     <article>
-      <h3 data-i18n="t6Title">它不能说明什么</h3>
-      <p data-i18n="t6Body">任何一个数值是准确的；阶段划分的位置是对的；评分和反馈短句对教学有意义；用了这个系统会改变任何人的打法。这些都还没有验证。</p>
+      <h3>What it does not establish</h3>
+      <p>That any number is accurate; that the phase boundaries are in the right place; that the scores or feedback messages mean anything for coaching; or that using the system changes how anyone plays. None of that has been validated.</p>
     </article>
     <article class="test-wide">
-      <h3 data-i18n="t7Title">下一步需要的验证</h3>
-      <p data-i18n="t7Body">录制并逐拍标注真实训练（我自己和队友），在真实数据而不是模拟器上调整检测与评分；校准传感器安装方向，把正手和反手分开；加入对球拍和球的视频追踪，得到真实的拍头轨迹和触球点，再和传感器估计比对；最后做一个几周的小规模对照，比较用和不用这个界面的球员。这些都还没有开始。</p>
+      <h3>Validation still needed</h3>
+      <p>Record and label real sessions swing by swing (myself and teammates) and tune detection and scoring on that data instead of the simulator; calibrate the sensor’s mounting orientation to separate forehand from backhand; add video tracking of the racket and ball to get the real racket-head path and contact point, then compare it with the sensor’s estimates; and finally a small multi-week comparison of players with and without the interface. None of this has started.</p>
     </article>
   </div>
 </section>
@@ -280,73 +279,73 @@
 <!-- 5. Development and contribution -->
 <section class="story-section section-light" id="development">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">04 /</span><span data-i18n="storyEyebrow">开发过程与我的工作</span></div><h2 data-i18n-html="storyTitle">做了什么，<br><span>中途出了什么问题。</span></h2></div>
-    <p data-i18n="storyDescription">下面的照片按时间顺序排列，每张说明它证明了什么；之后是两次有记录的改动，以及我负责的部分和借用的部分。</p>
+    <div><div class="eyebrow"><span class="section-index">04 /</span><span>DEVELOPMENT AND MY PART IN IT</span></div><h2>What I built,<br><span>and what broke along the way.</span></h2></div>
+    <p>The photos are in order, each with what it shows. After them: two documented changes, and what I did versus what I reused or had help with.</p>
   </div>
   <div class="story-gallery">
-    <figure><div class="photo-wrap"><img src="assets/assembly.jpg?v=20261010" alt="在工作台上为紫色外壳的场边单元接线，背景显示器上的日期是 2026 年 8 月 27 日" data-i18n-alt="assemblyAlt" loading="lazy" width="1448" height="1086"></div><figcaption><span>01</span><div><h3 data-i18n="gallery1Title">工作台：场边单元接线</h3><p data-i18n="gallery1Description">2026 年 8 月，在工作台上为场边单元接线、装入紫色外壳。摄像头和传感器的 USB 接收器后来都接在这台电脑上。</p></div></figcaption></figure>
-    <figure><div class="photo-wrap"><img src="assets/grip-mount.jpg?v=20261010" alt="球场内两名球员蹲着，其中一人把传感器装到球拍握柄末端" data-i18n-alt="installationPhotoAlt" loading="lazy" width="1448" height="1086"></div><figcaption><span>02</span><div><h3 data-i18n="gallery2Title">球场：把传感器装到拍柄末端</h3><p data-i18n="gallery2Description">传感器固定在手握位置之下，握法不变。一名队友帮忙做球场测试。它对球拍平衡的影响没有测量过。</p></div></figcaption></figure>
-    <figure><div class="photo-wrap"><img src="assets/rock5c.jpg" alt="紫色外壳的摄像头单元用吸盘固定在球场玻璃上" data-i18n-alt="rockAlt" loading="lazy" width="1600" height="1200"></div><figcaption><span>03</span><div><h3 data-i18n="gallery3Title">球场：摄像头单元吸在玻璃上</h3><p data-i18n="gallery3Description">只有一个摄像头，位置要能看到整个人。从这个位置，录像那次软件报告的处理速度是每秒 14–16 帧，追踪置信度 81–82%。</p></div></figcaption></figure>
-    <figure><div class="photo-wrap"><img src="assets/testing.jpg?v=20261010" alt="Leon 坐在场边的长凳上，一手拿着装了传感器的球拍，笔记本电脑放在腿上" data-i18n-alt="debuggingPhotoAlt" loading="lazy" width="1448" height="1086"></div><figcaption><span>04</span><div><h3 data-i18n="gallery4Title">场边：开练前检查数据流</h3><p data-i18n="gallery4Description">用笔记本电脑通过局域网打开界面，确认传感器数据在到达、摄像头在追踪，然后才开始训练。</p></div></figcaption></figure>
+    <figure><div class="photo-wrap"><img src="assets/assembly.jpg?v=20261010" alt="Wiring the purple-cased courtside unit at a workbench; the monitor behind shows the date 27 August 2026" loading="lazy" width="1448" height="1086"></div><figcaption><span>01</span><div><h3>Workbench: wiring the courtside unit</h3><p>August 2026: wiring the courtside unit and fitting it into its purple enclosure. The camera and the sensor’s USB receiver both connect to this computer.</p></div></figcaption></figure>
+    <figure><div class="photo-wrap"><img src="assets/grip-mount.jpg?v=20261010" alt="Two players crouching on court while one fits the sensor to the end of a racket grip" loading="lazy" width="1448" height="1086"></div><figcaption><span>02</span><div><h3>Court: fitting the sensor to the grip end</h3><p>The sensor sits below where the hand goes, so the grip itself is unchanged. A teammate helped with the court tests. The unit’s effect on racket balance has not been measured.</p></div></figcaption></figure>
+    <figure><div class="photo-wrap"><img src="assets/rock5c.jpg" alt="The purple camera unit held to the court glass by a suction mount" loading="lazy" width="1600" height="1200"></div><figcaption><span>03</span><div><h3>Court: the camera unit on the glass</h3><p>One camera, placed so it can see the whole player. From this position the software reported 14–16 frames per second and 81–82% tracking confidence in the recorded session.</p></div></figcaption></figure>
+    <figure><div class="photo-wrap"><img src="assets/testing.jpg?v=20261010" alt="Leon on a bench beside the court, holding the racket with the sensor fitted and a laptop on his knees" loading="lazy" width="1448" height="1086"></div><figcaption><span>04</span><div><h3>Courtside: checking the stream before hitting</h3><p>Opening the interface on a laptop over the local network to confirm the sensor data is arriving and the camera is tracking before the session starts.</p></div></figcaption></figure>
   </div>
 
   <div class="iterations">
-    <div class="walkthrough-heading"><h3 data-i18n="iterTitle">两次有记录的改动</h3><p data-i18n="iterIntro">这两段来自我在项目介绍视频里的叙述，按“问题 → 改动 → 原因 → 下一次测试 → 未解决”整理。</p></div>
+    <div class="walkthrough-heading"><h3>Two documented changes</h3><p>Both come from my account in the introduction video, laid out as problem → change → why → next test → still open.</p></div>
     <div class="iteration-grid">
       <article>
         <span class="iteration-index">A</span>
-        <h4 data-i18n="iterATitle">时钟对齐</h4>
+        <h4>Clock alignment</h4>
         <dl>
-          <dt data-i18n="iterProblem">问题</dt><dd data-i18n="iterAProblem">传感器、电脑和浏览器各有自己的时钟，无线数据会晚到或丢失。早期版本里，球拍峰值和对应的视频帧可能差零点几秒——这对时序分析来说等于没用。</dd>
-          <dt data-i18n="iterChange">改动</dt><dd data-i18n="iterAChange">用观察到的最快一次送达来对齐时钟，随漂移一点点修正，并把剩余不确定度显示在界面上。</dd>
-          <dt data-i18n="iterWhy">为什么这样做</dt><dd data-i18n="iterAWhy">最快送达最接近真实偏移；逐步修正避免曲线跳动；把不确定度显示出来，用户才知道哪些时序结论靠不住。</dd>
-          <dt data-i18n="iterNext">下一次测试</dt><dd data-i18n="iterANext">录像那次训练里，界面报告同步 89%、偏移 0 ms。</dd>
-          <dt data-i18n="iterOpen">未解决</dt><dd data-i18n="iterAOpen">视频帧与传感器峰值之间的实际误差没有测量；“数据延迟”卡片仍然显示原始的时钟偏移。</dd>
+          <dt>Problem</dt><dd>The sensor, the computer and the browser each keep their own clock, and wireless data arrives late or goes missing. Early on, the racket peak and the matching video frame could be off by a noticeable fraction of a second — useless for any timing analysis.</dd>
+          <dt>Change</dt><dd>Align the clocks on the fastest delivery observed, correct the offset a little at a time as it drifts, and display the leftover uncertainty in the interface.</dd>
+          <dt>Why this approach</dt><dd>The fastest delivery is the closest estimate of the true offset; gradual correction avoids jumps in the chart; showing the uncertainty tells the user which timing conclusions to trust.</dd>
+          <dt>Next test</dt><dd>In the recorded session the interface reported sync 89% with a 0 ms offset.</dd>
+          <dt>Still open</dt><dd>The real error between a video frame and the sensor peak has not been measured, and the latency card still shows the raw clock offset.</dd>
         </dl>
       </article>
       <article>
         <span class="iteration-index">B</span>
-        <h4 data-i18n="iterBTitle">挥拍检测</h4>
+        <h4>Swing detection</h4>
         <dl>
-          <dt data-i18n="iterProblem">问题</dt><dd data-i18n="iterBProblem">第一版检测器用固定速度阈值，快挥拍没问题，换成慢而紧凑的挥拍就完全没反应。</dd>
-          <dt data-i18n="iterChange">改动</dt><dd data-i18n="iterBChange">改成寻找持续加速，再根据球拍改变方向的时刻事后划分阶段。</dd>
-          <dt data-i18n="iterWhy">为什么这样做</dt><dd data-i18n="iterBWhy">不依赖阈值的判定对不同幅度的挥拍更通用。我从这里学到的是：一定要用不是为它准备的数据去测。</dd>
-          <dt data-i18n="iterNext">下一次测试</dt><dd data-i18n="iterBNext">录像那次训练里，22 分钟识别出 197 次挥拍，并给出阶段标签和分段。</dd>
-          <dt data-i18n="iterOpen">未解决</dt><dd data-i18n="iterBOpen">检测与评分是在模拟器上调的；没有人工计数来核对漏检和误检；挥拍类型分类不可靠。</dd>
+          <dt>Problem</dt><dd>The first detector used fixed speed thresholds. It worked on fast swings and felt nothing on slower, more compact ones.</dd>
+          <dt>Change</dt><dd>Detect sustained acceleration instead, then assign the phases afterwards from the moments where the racket changes direction.</dd>
+          <dt>Why this approach</dt><dd>A threshold-free rule generalises across swing sizes. The lesson I took from it: always test on data you did not build it for.</dd>
+          <dt>Next test</dt><dd>In the recorded session, 197 swings were detected over 22 minutes with phase chips and shading.</dd>
+          <dt>Still open</dt><dd>Detection and scoring were tuned on a simulator; there is no manual count to check misses and false detections; swing-type classification is unreliable.</dd>
         </dl>
       </article>
     </div>
   </div>
 
   <div class="contribution">
-    <div class="walkthrough-heading"><h3 data-i18n="contribTitle">我负责的部分，和借用的部分</h3><p data-i18n="contribIntro">这个项目不是一个人从零做出来的。下面按“我做的 / 用现成的 / 得到的帮助”分开。</p></div>
+    <div class="walkthrough-heading"><h3>What I did, and what I borrowed</h3><p>This was not built by one person from nothing. Here it is split into what I did, what I reused, and the help I had.</p></div>
     <div class="contribution-grid">
       <article>
-        <h4 data-i18n="contribMineTitle">我做的</h4>
+        <h4>What I did</h4>
         <ul>
-          <li data-i18n="contribMine1">组装传感器单元、外壳和安装件；把摄像头单元装到球场上。</li>
-          <li data-i18n="contribMine2">传感器微控制器的固件：读取 IMU、设计能发现丢包和损坏的数据包格式、通过无线链路把数据送到 USB 接收器。这是我第一次给微控制器写程序。</li>
-          <li data-i18n="contribMine3">传感器数据处理：把重力从挥拍加速度里分离出来、决定什么时候平滑信号、估计球拍朝向（以及理解它为什么会漂移）。</li>
-          <li data-i18n="contribMine4">时钟对齐方案、挥拍检测器和阶段划分逻辑。</li>
-          <li data-i18n="contribMine5">训练界面：实时画面与骨架、数据卡片、实时曲线、同步时间轴、训练报告。</li>
-          <li data-i18n="contribMine6">球场测试，以及上面两次改动。</li>
+          <li>Assembled the sensor unit, its housing and mounting; installed the camera unit on court.</li>
+          <li>Firmware for the sensor’s microcontroller: reading the IMU, a packet format that can tell when data is lost or corrupted, and the wireless link to the USB receiver. It was my first time programming a microcontroller.</li>
+          <li>Sensor-data processing: separating gravity from the swing acceleration, deciding when to smooth a signal, and estimating the racket’s orientation (and understanding why that estimate drifts).</li>
+          <li>The clock-alignment scheme, the swing detector and the phase logic.</li>
+          <li>The training interface: live view with skeleton, metric cards, live chart, synchronized timeline and session report.</li>
+          <li>The court tests and the two changes above.</li>
         </ul>
       </article>
       <article>
-        <h4 data-i18n="contribReusedTitle">用现成的</h4>
+        <h4>What I reused</h4>
         <ul>
-          <li data-i18n="contribReused1">身体关键点来自 Google 的 MediaPipe Pose 模型；我写的是把关键点变成角度、路径和阶段的代码。</li>
-          <li data-i18n="contribReused2">无线用的是 Espressif 的 ESP-NOW 协议。</li>
-          <li data-i18n="contribReused3">界面和图表基于开源网页库。</li>
-          <li data-i18n="contribReused4">硬件都是购买的现成模块：ESP32-S3 开发板、ICM42688 IMU 模块、ROCK 5C 单板电脑、摄像头、吸盘支架。</li>
+          <li>Body landmarks come from Google’s MediaPipe Pose model; the code that turns landmarks into angles, paths and phases is mine.</li>
+          <li>Wireless uses Espressif’s ESP-NOW protocol.</li>
+          <li>The interface and charts are built on open-source web libraries.</li>
+          <li>All hardware is off-the-shelf: ESP32-S3 boards, an ICM42688 IMU module, the ROCK 5C single-board computer, a camera and a suction mount.</li>
         </ul>
       </article>
       <article>
-        <h4 data-i18n="contribHelpTitle">得到的帮助</h4>
+        <h4>Help I had</h4>
         <ul>
-          <li data-i18n="contribHelp1">队友参与了球场测试。</li>
-          <li data-i18n="contribHelp2">一位老师在项目过程中给了建议。</li>
-          <li data-i18n="contribHelp3">部分代码是在 AI 编程助手的协助下写的；调试、取舍和一次次重测是我自己做的。我在视频里把这叫作 “vibe coding”。</li>
+          <li>Teammates took part in the court tests.</li>
+          <li>A teacher advised on the project.</li>
+          <li>Parts of the code were written with AI coding assistants; the debugging, the trade-offs and the repeated re-testing were mine. In the video I call this “vibe coding”.</li>
         </ul>
       </article>
     </div>
@@ -356,21 +355,21 @@
 <!-- 6. Specifications and FAQ -->
 <section class="specs-section" id="specs">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">05 /</span><span data-i18n="specsEyebrow">参数与问答</span></div><h2 data-i18n-html="specsTitle">用起来<br><span>是什么样的。</span></h2></div>
-    <p data-i18n="specsDescription">只写目前知道的。没有测过的量（重量、尺寸、续航、安装耗时）在这里直接说明没有测过，不给估计值。</p>
+    <div><div class="eyebrow"><span class="section-index">05 /</span><span>SPECS AND FAQ</span></div><h2>What using it<br><span>is actually like.</span></h2></div>
+    <p>Only what is known. Where a quantity has not been measured (weight, size, battery life, setup time) this says so instead of giving an estimate.</p>
   </div>
   <div class="specs-layout">
-    <figure class="specs-photo"><img src="assets/sensor.jpg" alt="手持球拍，握柄末端装着圆柱形传感器，外壳里能看到电路板" data-i18n-alt="specsPhotoAlt" loading="lazy" width="1200" height="1600"><figcaption data-i18n="specsPhotoCaption">当前原型的传感器单元：一块电路板装在固定于拍柄底部的短圆柱外壳里。</figcaption></figure>
+    <figure class="specs-photo"><img src="assets/sensor.jpg" alt="A hand holding the racket with the cylindrical sensor fitted to the grip end; the circuit board is visible inside the housing" loading="lazy" width="1200" height="1600"><figcaption>The sensor unit on the current prototype: a circuit board inside a short cylindrical housing fixed to the butt end of the grip.</figcaption></figure>
     <dl class="faq">
-      <div><dt data-i18n="faq1Q">传感器里有什么？</dt><dd data-i18n="faq1A">一块 ESP32-S3 微控制器板和一颗 ICM42688 六轴 IMU（三轴加速度计 + 三轴陀螺仪），装在拍柄底部的短圆柱外壳里。重量和尺寸没有测量，所以不公布。</dd></div>
-      <div><dt data-i18n="faq2Q">怎么固定？适合什么球拍？</dt><dd data-i18n="faq2A">固定在握柄末端、手握位置之下（见照片）。目前只装过我自己的球拍，没有试过其他型号。它对握感和球拍平衡的影响没有测量。</dd></div>
-      <div><dt data-i18n="faq3Q">怎么供电？能用多久？</dt><dd data-i18n="faq3A">电池供电。续航没有测量过。</dd></div>
-      <div><dt data-i18n="faq4Q">开练前要做什么？要多久？</dt><dd data-i18n="faq4A">把装好传感器的球拍静置，完成传感器校准；然后在训练界面记录一次中立姿态。准备时间没有计过时。录像那次训练漏了记录中立姿态，所以那次所有基于姿态的数值都没有基准。</dd></div>
-      <div><dt data-i18n="faq5Q">摄像头放哪里？需要什么设备？</dt><dd data-i18n="faq5A">ROCK 5C 装在紫色外壳里，摄像头固定在外壳正面，整体用吸盘吸在球场玻璃上，位置要能看到整个人。传感器的 USB 接收器插在这台电脑上。再用同一局域网里的一台笔记本电脑打开网页界面。</dd></div>
-      <div><dt data-i18n="faq6Q">哪些功能是训练中实时的，哪些是训练后看的？</dt><dd data-i18n="faq6A">实时：摄像头画面与骨架、关节角度标签、阶段标签、实时 IMU 曲线、数据卡片、规则生成的反馈短句。训练后：训练报告（评分、挥拍类型统计、深度分析曲线、建议）和逐拍的同步时间轴。</dd></div>
-      <div><dt data-i18n="faq7Q">已知的追踪局限？</dt><dd data-i18n="faq7A">单个摄像头，每秒 14–16 帧；带 * 的角度是图像平面角；缺帧时不插值；录像那次的追踪置信度约 81%。传感器单独估计的朝向会漂移；正手和反手还不能可靠区分。</dd></div>
-      <div><dt data-i18n="faq8Q">现在能试用吗？</dt><dd data-i18n="faq8A">不能。目前只有一台原型，没有应用或产品可以下载。想了解进展，可以关注下面的代码仓库。</dd></div>
-      <div><dt data-i18n="faq9Q">录像和数据存在哪里？</dt><dd data-i18n="faq9A">录像那次的设置全部跑在局域网里（界面显示“局域网在线”），数据在场边电脑上处理；报告页注明融合分析结果在浏览器端计算、由后端存储在那台电脑上。</dd></div>
+      <div><dt>What is inside the sensor?</dt><dd>An ESP32-S3 microcontroller board and an ICM42688 six-axis IMU (three-axis accelerometer plus three-axis gyroscope) in a short cylindrical housing at the butt end of the grip. Weight and dimensions have not been measured, so they are not published.</dd></div>
+      <div><dt>How is it attached, and which rackets does it fit?</dt><dd>It is fixed to the end of the grip, below where the hand sits (see the photos). Only my own rackets have been used; no other models have been tried. Its effect on grip feel and racket balance has not been measured.</dd></div>
+      <div><dt>How is it powered, and for how long?</dt><dd>Battery powered. Battery life has not been measured.</dd></div>
+      <div><dt>What has to happen before a session, and how long does it take?</dt><dd>Hold the racket still with the sensor fitted so it can calibrate, then record a neutral pose in the interface. Setup time has not been timed. The recorded session skipped the neutral pose, which is why all orientation-based values in it lack a reference.</dd></div>
+      <div><dt>Where does the camera go, and what equipment is needed?</dt><dd>The ROCK 5C and the camera sit in one enclosure held to the court glass by a suction mount, positioned to see the whole player. The sensor’s USB receiver plugs into this computer. A laptop on the same local network opens the web interface.</dd></div>
+      <div><dt>Which functions work during training, and which are for later review?</dt><dd>Live: camera view with skeleton, joint-angle labels, phase chips, the live IMU chart, the metric cards and the rule-generated feedback messages. After the session: the report (scores, swing-type statistics, deep-analysis chart, suggestions) and the swing-by-swing synchronized timeline.</dd></div>
+      <div><dt>Known tracking limitations?</dt><dd>One camera at 14–16 frames per second; angles marked with an asterisk are image-plane angles; missing frames are not interpolated; tracking confidence was about 81% in the recorded session. Sensor-only orientation drifts, and forehand and backhand are not yet reliably separated.</dd></div>
+      <div><dt>Can anyone try it?</dt><dd>No. There is one prototype and no app or product to download. The repository below is the place to follow progress.</dd></div>
+      <div><dt>Where are recordings and data processed and stored?</dt><dd>The recorded setup ran entirely on the local network (the interface shows "LAN online", 局域网在线), with processing on the courtside computer; the report page states that fusion results are computed in the browser and stored by the backend on that computer.</dd></div>
     </dl>
   </div>
 </section>
@@ -378,58 +377,58 @@
 <!-- 7. About Leon -->
 <section class="author-section section-light" id="author">
   <div class="author-profile" aria-labelledby="author-name">
-    <div class="author-eyebrow eyebrow"><span class="section-index">06 /</span><span data-i18n="authorEyebrow">关于 Leon</span></div>
+    <div class="author-eyebrow eyebrow"><span class="section-index">06 /</span><span>ABOUT LEON</span></div>
     <div class="author-intro">
-      <figure class="author-lead-photo"><img src="assets/author/leon-court.jpg" alt="Leon 在壁球比赛中正手击球" data-i18n-alt="authorLeadAlt" width="1600" height="1067" loading="lazy"><figcaption><span data-i18n="authorPhotoLabel">比赛中的 Leon</span><span data-i18n="authorPhotoCredit">赛事照片</span></figcaption></figure>
+      <figure class="author-lead-photo"><img src="assets/author/leon-court.jpg" alt="Leon hitting a forehand during a squash match" width="1600" height="1067" loading="lazy"><figcaption><span>Leon in a match</span><span>Tournament photo</span></figcaption></figure>
       <div class="author-bio">
-        <p class="author-role" data-i18n="authorRole">壁球运动员 · 校队队长 · SquashSense 的作者</p>
+        <p class="author-role">Squash player · school team captain · built SquashSense</p>
         <h2 id="author-name">Leon<span>.</span></h2>
-        <h3 data-i18n="authorHeadline">为什么做这个。</h3>
-        <p data-i18n="authorBiography">我打了大约十年壁球，在美国一所寄宿高中的校队打比赛，这个学年担任队长。壁球里大多数反馈是别人对一次零点几秒的挥拍的印象，而独自练球时根本没有反馈。我想要一种能把挥拍量出来的办法——比如那种靠运气打出的 nick 球——然后有意识地再打出来。SquashSense 是我对这个问题的尝试：一个传感器、一个摄像头，加上把两者放到同一条时间线上的软件。</p>
-        <p class="author-project" data-i18n="authorProject">我学到的：几乎所有东西对我都是新的——第一次写微控制器程序、第一次做无线链路、第一次处理原始传感器数据。记得最牢的一课是：一定要用不是为它准备的数据去测。在我的快速挥拍上好用的检测器，碰到慢挥拍就失灵了。</p>
+        <h3>Why I built it.</h3>
+        <p>I have played squash for about ten years. I am a senior at a boarding high school in the United States and captain of its squash team this season. Most feedback in squash is someone’s impression of a swing that lasts a fraction of a second, and solo practice gives no feedback at all. I wanted a way to measure a swing — the nick shot I hit by luck, say — and then hit it again on purpose. SquashSense is my attempt at that: a sensor, a camera, and software that puts the two on one timeline.</p>
+        <p class="author-project">What I learned: almost everything was new to me — my first microcontroller program, my first wireless link, my first time handling raw sensor data. The lesson that stuck: always test on data you did not build it for. The detector that worked on my fast swings failed on slow ones.</p>
       </div>
     </div>
 
     <div class="creator-block" id="project-intro">
       <div class="creator-media">
         <div class="creator-image" data-video-shell>
-          <video id="creator-video" class="creator-video" controls playsinline preload="none" poster="assets/author-intro-poster.jpg" aria-label="Leon 的项目介绍视频" data-i18n-aria="creatorVideoLabel" width="1280" height="720">
+          <video id="creator-video" class="creator-video" controls playsinline preload="none" poster="assets/author-intro-poster.jpg" aria-label="Leon’s project introduction video" width="1280" height="720">
             <source src="assets/author-intro-short.mp4?v=20261010" type="video/mp4" data-src-short="assets/author-intro-short.mp4?v=20261010" data-src-full="assets/author-intro.mp4?v=20261010-720p">
             <track kind="captions" srclang="en" label="English (auto-generated, edited)" src="assets/captions/author-intro.en.vtt" data-full-only>
-            <span data-i18n="videoUnsupported">浏览器暂不支持视频播放。</span>
+            <span>Your browser does not support video playback.</span>
           </video>
           <div class="video-overlay" data-overlay>
-            <button class="creator-play" id="play-creator" type="button" aria-label="播放 Leon 的项目介绍（1 分 18 秒精简版）" data-i18n-aria="creatorPlayAria"><span class="creator-play-icon" aria-hidden="true">▶</span><span data-i18n="creatorPlay">播放 1 分 18 秒精简版</span></button>
+            <button class="creator-play" id="play-creator" type="button" aria-label="Play Leon’s project introduction (1 min 18 s short version)"><span class="creator-play-icon" aria-hidden="true">▶</span><span class="creator-play-text">Play the 1:18 short version</span></button>
             <span class="video-status" data-status aria-live="polite"></span>
           </div>
         </div>
-        <div class="creator-video-meta"><span data-i18n="creatorVideoMeta">项目介绍 · LEON · 英文访谈</span><span id="creator-duration">01:18</span></div>
-        <div class="video-versions" role="group" aria-label="视频版本" data-i18n-aria="versionsLabel">
-          <button type="button" class="version-button active" data-version="short" aria-pressed="true" data-i18n="versionShort">精简版 1:18</button>
-          <button type="button" class="version-button" data-version="full" aria-pressed="false" data-i18n="versionFull">完整版 12:32（带英文字幕）</button>
+        <div class="creator-video-meta"><span>PROJECT INTRODUCTION · LEON · INTERVIEW IN ENGLISH</span><span id="creator-duration">01:18</span></div>
+        <div class="video-versions" role="group" aria-label="Video version">
+          <button type="button" class="version-button active" data-version="short" aria-pressed="true">Short version 1:18</button>
+          <button type="button" class="version-button" data-version="full" aria-pressed="false">Full version 12:32 (English captions)</button>
         </div>
-        <p class="creator-video-error media-error" id="creator-video-error" role="status" data-i18n="creatorError" hidden>视频暂时无法播放。请检查网络后重试。</p>
+        <p class="creator-video-error media-error" id="creator-video-error" role="status" hidden>The video could not be played. Check your connection and try again.</p>
       </div>
       <div class="creator-copy">
-        <span class="eyebrow" data-i18n="creatorEyebrow">项目介绍视频</span>
-        <h2 data-i18n-html="creatorTitle">我自己讲一遍<br>SquashSense。</h2>
-        <p data-i18n="creatorDescription">这是一段 12 分 32 秒的英文访谈录像。精简版 1 分 18 秒由原片剪成，只保留了“这是什么”和“怎么工作”两段；完整版带英文字幕（由语音识别生成、按上下文校正，措辞可能与原声略有出入）。下面是书面摘要和章节时间点，不想看视频也能了解内容。</p>
+        <span class="eyebrow">INTRODUCTION VIDEO</span>
+        <h2>SquashSense,<br>in my own words.</h2>
+        <p>A 12-minute-32-second interview recorded in English. The 1:18 short version is cut from the original and keeps only “what it is” and “how it works”; the full version has English captions (generated by speech recognition and corrected by context, so the wording may differ slightly from the audio). The written summary and chapter list below cover the content without the video.</p>
         <div class="summary">
-          <h4 data-i18n="summaryTitle">书面摘要</h4>
-          <p data-i18n="summaryBody">我在视频里说的要点：壁球里的反馈大多是主观印象，独自练球没有反馈，我想把挥拍量化、让好球可以重复。系统有三部分——拍柄上的运动传感器（每秒 500 次）、看球员的摄像头（每帧 33 个关键点）、把两者放到一条时间线上的软件；软件把每次挥拍分成准备、引拍、前挥、触球、随挥、回位六个阶段，并以“传感器上出现冲击且球拍接近峰值速度”判定触球。最大的难点是让数字可信：三个时钟不同步、无线丢包，以及固定阈值的检测器漏掉慢挥拍。几乎所有技术对我都是第一次。下一步是用标注过的真实训练数据验证检测和评分，加入对球拍和球的视频追踪，再做一个小规模对照研究——结果如何，我现在不确定。</p>
+          <h4>Written summary</h4>
+          <p>What I say in the video: feedback in squash is mostly subjective, solo practice has none, and I wanted to quantify a swing so a good shot can be repeated. The system has three parts — a motion sensor on the grip (500 times a second), a camera watching the player (33 landmarks per frame) and software that puts both on one timeline. The software splits each swing into six stages (preparation, backswing, forward swing, impact, follow-through, recovery) and calls contact when a shock appears on the sensor while the racket is near peak speed. The hardest part was making a number trustworthy: three unsynchronised clocks, lost wireless packets, and a threshold-based detector that missed slow swings. Almost every technique was a first for me. Next is validating detection and scoring on labelled real sessions, adding video tracking of racket and ball, and running a small comparison study — and I am not sure yet how that will turn out.</p>
         </div>
         <div class="chapters">
-          <h4 data-i18n="chaptersTitle">完整版章节（点击跳转）</h4>
+          <h4>Full-version chapters (click to jump)</h4>
           <ol class="chapter-list" id="chapter-list">
-            <li><button type="button" data-seek="0"><span>0:00</span><span data-i18n="ch1">这是什么</span></button></li>
-            <li><button type="button" data-seek="53"><span>0:53</span><span data-i18n="ch2">我在训练里看到的问题</span></button></li>
-            <li><button type="button" data-seek="133"><span>2:13</span><span data-i18n="ch3">为什么是壁球</span></button></li>
-            <li><button type="button" data-seek="219"><span>3:39</span><span data-i18n="ch4">现有训练方法的不足</span></button></li>
-            <li><button type="button" data-seek="319"><span>5:19</span><span data-i18n="ch5">系统怎么工作</span></button></li>
-            <li><button type="button" data-seek="408"><span>6:48</span><span data-i18n="ch6">它能给什么反馈</span></button></li>
-            <li><button type="button" data-seek="465"><span>7:45</span><span data-i18n="ch7">最大的难点</span></button></li>
-            <li><button type="button" data-seek="546"><span>9:06</span><span data-i18n="ch8">学到了什么</span></button></li>
-            <li><button type="button" data-seek="641"><span>10:41</span><span data-i18n="ch9">下一步</span></button></li>
+            <li><button type="button" data-seek="0"><span>0:00</span><span>What the device is</span></button></li>
+            <li><button type="button" data-seek="53"><span>0:53</span><span>Problems I saw in training</span></button></li>
+            <li><button type="button" data-seek="133"><span>2:13</span><span>Why squash</span></button></li>
+            <li><button type="button" data-seek="219"><span>3:39</span><span>Shortcomings of current coaching</span></button></li>
+            <li><button type="button" data-seek="319"><span>5:19</span><span>How the system works</span></button></li>
+            <li><button type="button" data-seek="408"><span>6:48</span><span>What feedback it gives</span></button></li>
+            <li><button type="button" data-seek="465"><span>7:45</span><span>The greatest challenge</span></button></li>
+            <li><button type="button" data-seek="546"><span>9:06</span><span>What I learned</span></button></li>
+            <li><button type="button" data-seek="641"><span>10:41</span><span>Future direction</span></button></li>
           </ol>
         </div>
       </div>
@@ -439,21 +438,21 @@
 
 <!-- 8. Documentation -->
 <section class="closing" id="docs">
-  <span class="eyebrow" data-i18n="closingEyebrow">07 / 资料与源码</span>
-  <h2 data-i18n-html="closingTitle">想看得更细，<span>从这里开始。</span></h2>
-  <p class="closing-text" data-i18n="closingText">这个网站的源码是公开的；项目概览把本页的要点、已验证与未验证的事项整理成一页。应用程序和固件代码目前还没有公开。</p>
+  <span class="eyebrow">07 / DOCUMENTATION AND SOURCE</span>
+  <h2>To look closer, <span>start here.</span></h2>
+  <p class="closing-text">This website’s source is public, and the project overview collects the page’s key points, verified and unverified, on one page. The application and firmware code are not public yet.</p>
   <div class="closing-links">
-    <a class="button button-lime" href="https://github.com/leon-3647/squashsense" rel="noopener"><span data-i18n="linkRepo">网站源码仓库（GitHub）</span><span aria-hidden="true">↗</span></a>
-    <a class="button button-outline" href="docs/project-overview.html"><span data-i18n="linkOverview">项目概览（一页，中英文）</span><span aria-hidden="true">→</span></a>
+    <a class="button button-lime" href="https://github.com/leon-3647/squashsense" rel="noopener"><span>Website source on GitHub</span><span aria-hidden="true">↗</span></a>
+    <a class="button button-outline" href="docs/project-overview.html"><span>Project overview (one page)</span><span aria-hidden="true">→</span></a>
   </div>
 </section>
 </main>
 <footer class="site-footer">
   <a class="brand" href="#"><span class="brand-icon">s<span>•</span></span>SquashSense</a>
-  <span data-i18n="footerText">学生自制的壁球训练研究原型 · 不是产品</span>
+  <span>A student-built squash training research prototype · not a product</span>
   <a class="footer-link" href="https://github.com/leon-3647/squashsense" rel="noopener">GitHub</a>
   <span class="footer-note">© 2026 Leon · SquashSense</span>
-  <a href="#" aria-label="回到顶部" data-i18n-aria="backTop">↑</a>
+  <a href="#" aria-label="Back to top">↑</a>
 </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { animationMessages } from './content.js?v=20261002-intro-v6';
+import { animationMessages } from './content.js?v=20261011-en';
 
 // Dependency-free 3D schematic. Geometry follows the reference photo, not CAD dimensions.
 export function initInstallation(getLanguage) {

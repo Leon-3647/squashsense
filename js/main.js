@@ -1,52 +1,7 @@
-import { english, siteConfig } from './content.js?v=20261010-evidence1';
-import { initInstallation } from './installation.js?v=20261004-motion2';
+import { siteConfig } from './content.js?v=20261011-en';
+import { initInstallation } from './installation.js?v=20261011-en';
 
-/* ---------- Language ---------- */
-const translatedNodes = [...document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-alt],[data-i18n-aria]')];
-const original = new Map(translatedNodes.map(node => [node, { text: node.textContent, html: node.innerHTML, alt: node.getAttribute('alt'), aria: node.getAttribute('aria-label') }]));
-const titles = { en: 'SquashSense — Review your swing with racket motion and body tracking', zh: 'SquashSense — 用球拍运动数据和身体追踪复盘挥拍' };
-const descriptions = {
-  en: 'SquashSense is a student-built squash training research prototype: a racket-mounted motion sensor and camera-based body tracking on one timeline, with an honest account of what has and has not been tested.',
-  zh: 'SquashSense 是一个学生自制的壁球训练研究原型：球拍末端的运动传感器加场边摄像头的身体追踪，把两路数据放在同一条时间线上，供训练后复盘。',
-};
-let language = 'en';
-const urlLang = new URLSearchParams(location.search).get('lang');
-if (urlLang === 'zh' || urlLang === 'en') language = urlLang;
-else { try { language = localStorage.getItem('squashsense-language') === 'zh' ? 'zh' : 'en'; } catch {} }
-const langButton = document.querySelector('.lang-switch');
-const missingKeys = new Set();
-function lookup(key) {
-  if (Object.prototype.hasOwnProperty.call(english, key)) return english[key];
-  missingKeys.add(key);
-  return null;
-}
-function setLanguage(next, { updateUrl = true } = {}) {
-  language = next;
-  document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en';
-  translatedNodes.forEach(node => {
-    const previous = original.get(node);
-    if (node.dataset.i18n) { const v = next === 'en' ? lookup(node.dataset.i18n) : previous.text; if (v !== null) node.textContent = v; }
-    if (node.dataset.i18nHtml) { const v = next === 'en' ? lookup(node.dataset.i18nHtml) : previous.html; if (v !== null) node.innerHTML = v; }
-    if (node.dataset.i18nAlt) { const v = next === 'en' ? lookup(node.dataset.i18nAlt) : previous.alt; if (v !== null) node.alt = v; }
-    if (node.dataset.i18nAria) { const v = next === 'en' ? lookup(node.dataset.i18nAria) : previous.aria; if (v !== null) node.setAttribute('aria-label', v); }
-  });
-  document.getElementById('lang-label').textContent = next === 'en' ? '中文' : 'EN';
-  langButton.setAttribute('aria-label', next === 'en' ? '切换到中文' : 'Switch to English');
-  langButton.setAttribute('lang', next === 'en' ? 'zh-CN' : 'en');
-  document.title = titles[next];
-  document.querySelector('meta[name=description]').content = descriptions[next];
-  try { localStorage.setItem('squashsense-language', next); } catch {}
-  if (updateUrl) {
-    const url = new URL(location.href);
-    url.searchParams.set('lang', next);
-    history.replaceState(null, '', url);
-  }
-  if (missingKeys.size) console.warn('Missing English strings:', [...missingKeys]);
-  window.dispatchEvent(new CustomEvent('site-language', { detail: next }));
-}
-langButton.addEventListener('click', () => setLanguage(language === 'zh' ? 'en' : 'zh'));
-setLanguage(language, { updateUrl: urlLang !== null });
-window.getSiteLanguage = () => language;
+const language = 'en';
 initInstallation(() => language);
 
 /* ---------- Mobile menu ---------- */
@@ -56,7 +11,7 @@ const nav = document.getElementById('site-nav');
 function setMenu(open) {
   header.classList.toggle('menu-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
-  const label = open ? (language === 'en' ? english.menuClose : '关闭菜单') : (language === 'en' ? english.menuOpen : '打开菜单');
+  const label = open ? 'Close menu' : 'Open menu';
   menuToggle.setAttribute('aria-label', label);
   if (open) nav.querySelector('a').focus();
 }
@@ -65,12 +20,11 @@ nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && header.classList.contains('menu-open')) { setMenu(false); menuToggle.focus(); }
 });
-window.addEventListener('site-language', () => { if (menuToggle.getAttribute('aria-expanded') === 'true') setMenu(true); else menuToggle.setAttribute('aria-label', language === 'en' ? english.menuOpen : '打开菜单'); });
 window.matchMedia('(min-width: 981px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
 /* ---------- Video players: one at a time, pause when hidden ---------- */
 const players = [];
-const statusText = key => language === 'en' ? english[key] : ({ videoLoading: '加载中…', videoPaused: '已暂停', videoPausedAway: '离开画面时已暂停' })[key];
+const statusText = key => ({ videoLoading: 'Loading…', videoPaused: 'Paused', videoPausedAway: 'Paused while off screen' })[key];
 
 function setupPlayer(video, { overlay, button, error }) {
   const status = overlay.querySelector('[data-status]');
@@ -115,7 +69,6 @@ function setupPlayer(video, { overlay, button, error }) {
     if (!entry.isIntersecting && !video.paused && !video.ended) { state.pausedAway = true; video.pause(); }
   }, { threshold: 0.25 });
   observer.observe(video);
-  window.addEventListener('site-language', refresh);
   refresh();
   players.push(state);
   return state;
@@ -146,13 +99,13 @@ const versionButtons = [...document.querySelectorAll('.version-button')];
 const durationLabel = document.getElementById('creator-duration');
 let creatorVersion = 'short';
 const playLabels = {
-  short: { en: english.creatorPlay, zh: '播放 1 分 18 秒精简版', ariaEn: english.creatorPlayAria, ariaZh: '播放 Leon 的项目介绍（1 分 18 秒精简版）' },
-  full: { en: 'Play the full 12:32 interview', zh: '播放 12 分 32 秒完整版', ariaEn: 'Play Leon’s full project introduction (12 min 32 s, English captions)', ariaZh: '播放 Leon 的项目介绍完整版（12 分 32 秒，英文字幕）' },
+  short: { text: 'Play the 1:18 short version', aria: 'Play Leon’s project introduction (1 min 18 s short version)' },
+  full: { text: 'Play the full 12:32 interview', aria: 'Play Leon’s full project introduction (12 min 32 s, English captions)' },
 };
 function applyCreatorLabels() {
   const labels = playLabels[creatorVersion];
-  creatorPlayButton.querySelector('[data-i18n]').textContent = language === 'en' ? labels.en : labels.zh;
-  creatorPlayButton.setAttribute('aria-label', language === 'en' ? labels.ariaEn : labels.ariaZh);
+  creatorPlayButton.querySelector('.creator-play-text').textContent = labels.text;
+  creatorPlayButton.setAttribute('aria-label', labels.aria);
   durationLabel.textContent = siteConfig[creatorVersion === 'short' ? 'creatorShort' : 'creatorFull'].duration;
 }
 function setCreatorVersion(version, { autoplay = false, seekTo = null } = {}) {
@@ -183,6 +136,5 @@ document.querySelectorAll('#chapter-list [data-seek]').forEach(button => {
     creatorVideo.closest('.creator-block').scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
 });
-window.addEventListener('site-language', applyCreatorLabels);
 if (captionTrack.isConnected) captionTrack.remove(); // short version is the default
 applyCreatorLabels();

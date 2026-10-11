@@ -66,7 +66,7 @@ These appear on the page attributed to Leon's description ("as I describe it", "
 - The page names the school only as "a boarding high school in the United States"; the video says the name aloud and the captions include it.
 - The four tournament photos removed from the page (`assets/author/leon-focus.jpg`, `leon-rally.jpg`, `leon-backswing.jpg`, `leon-next-shot.jpg`) are still in the repository. Delete them if you do not plan to use them.
 - The original 1080p `author-intro.mp4` (104 MB) was replaced by a 720p encode (55 MB) in the working tree; the original stays in git history on the previous commit.
-- English is still the default language (as before). To make Chinese the default, change `let language = 'en'` and the localStorage fallback in `js/main.js`.
+- The page is English-only as of 11 October 2026 (Leon's request, with US college admissions readers in mind). The Chinese copy and the language switch were removed; the bilingual version is in git history (commit 2175d4f). The only Chinese left on the page is the prototype's own on-screen labels, each placed after its English meaning.
 
 ## Testing performed (container Chromium via Playwright, 1440×900 and 390×844)
 
