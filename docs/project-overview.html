@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101310">
+<title>SquashSense — Project overview</title>
+<meta name="description" content="One-page overview of SquashSense, a student-built squash training research prototype: what it is, what has been demonstrated, what is unvalidated, and what comes next.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#101310;--lime:#c3f36b;--text:#f4f6ed;--muted:#c0c9bb;--border:#2c342c;--ink:#182019;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:var(--text);background:var(--bg)}
+*{box-sizing:border-box}body{margin:0}
+a{color:var(--lime)}a:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+.wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:36px}
+.brand{font-weight:650;font-size:22px;color:var(--text);text-decoration:none;letter-spacing:-.5px}
+.brand span{color:var(--lime);font-style:italic;margin-right:6px}
+nav a{font-size:14px;margin-left:16px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-1px;margin:0 0 10px}
+.meta{color:#9fab98;font-size:13px;letter-spacing:1px;margin-bottom:30px}
+h2{font-size:22px;margin:40px 0 12px;letter-spacing:-.4px}
+h3{font-size:16px;margin:22px 0 8px}
+p,li{font-size:15.5px;line-height:1.8;color:var(--muted)}
+ul{padding-left:20px}
+li{margin-bottom:6px}
+.lang{padding-top:30px;margin-top:40px;border-top:2px solid #3a4a30}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 20px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px 9px 0;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.6}
+th{color:var(--text);font-weight:600}
+thead th{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9fab98}
+.ok{color:var(--lime)}.warn{color:#f0d06a}.bad{color:#f0a06a}
+footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:#9fab98}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="../"><span>s•</span>SquashSense</a>
+  <nav><a href="../">Back to the site</a><a href="https://github.com/leon-3647/squashsense">Source on GitHub</a></nav>
+</header>
+
+<h1>SquashSense — project overview</h1>
+<p class="meta">STUDENT-BUILT TRAINING RESEARCH PROTOTYPE · LEON · UPDATED OCTOBER 2026</p>
+
+<p>SquashSense is a prototype that records a squash swing from two sides at once: a small motion sensor on the end of the racket grip, and a camera on a courtside computer that tracks the player's body. The software puts both on one timeline so a swing can be reviewed with numbers and video together after a session. It was built by Leon, a high-school squash player, out of personal interest. It is not a product and nobody can currently try it.</p>
+
+<h2>What it consists of</h2>
+<ul>
+  <li><b>Racket sensor</b> — an ESP32-S3 microcontroller board with an ICM42688 six-axis IMU (three-axis accelerometer and three-axis gyroscope) in a short cylindrical housing fixed to the butt end of the grip. Configured at 500 samples per second; the receiving software counted about 504 Hz in the recorded session. Data goes by ESP-NOW (a short-range Wi-Fi-based protocol) to a USB receiver on the courtside computer.</li>
+  <li><b>Body tracking</b> — a camera connected to the courtside computer; Google's MediaPipe Pose model finds 33 landmarks per frame, and SquashSense's own code computes joint-angle labels, a wrist path and swing phases from them. 14–16 frames per second in the recorded session.</li>
+  <li><b>Courtside computer</b> — a Radxa ROCK 5C single-board computer in an enclosure held to the court glass by a suction mount. It runs the pose model, receives the sensor stream, detects swings, aligns the clocks and serves the web interface over the local network.</li>
+</ul>
+
+<h2>What has been demonstrated</h2>
+<p>One session was recorded in full: 27 August 2026, free hitting, 22 minutes, one player (Leon), 197 swings detected by the software. The screen recording shows the whole pipeline running live on court: sensor → wireless → computer → browser chart; camera → landmarks → angle labels; swing detection and phase assignment on real swings; and a session report generated at the end. A small number of other informal court sessions took place but were not logged, so no count is quoted.</p>
+
+<h2>What is reported but not independently verified</h2>
+<p>The following come from Leon's recorded introduction (12:32, in English) and earlier notes. The application and firmware code were not inspected for this overview.</p>
+<ul>
+  <li>Swing detection looks for sustained acceleration rather than a fixed speed threshold (an earlier threshold version missed slow, compact swings); contact is marked when a shock appears on the accelerometer while the racket is near peak speed; phases are assigned afterwards from direction changes.</li>
+  <li>Clocks are aligned on the fastest observed packet delivery, corrected gradually as they drift, with the remaining uncertainty displayed.</li>
+  <li>Detection and scoring were developed on a simulator before the court sessions.</li>
+</ul>
+
+<h2>Status of the displayed values</h2>
+<table>
+<thead><tr><th>Value</th><th>Status</th></tr></thead>
+<tbody>
+<tr><th>Angular velocity (current / peak, °/s) and dynamic acceleration (g)</th><td class="ok">Direct sensor quantities; demonstrated live; accuracy not checked against a reference instrument</td></tr>
+<tr><th>Sensor sample rate</th><td class="ok">Configured 500 Hz, counted ~504 Hz</td></tr>
+<tr><th>Swing count and phases</th><td class="warn">Run on real swings; not checked against a manual count or labelled video</td></tr>
+<tr><th>Joint angles from the camera</th><td class="warn">Estimates from one camera; angles marked * are image-plane angles; no reference measurement</td></tr>
+<tr><th>Swing speed (km/h), impact, movement score, consistency score, rhythm</th><td class="bad">Unvalidated; the recording shows implausible values (e.g. 261.7 km/h) and a negative "rhythm"</td></tr>
+<tr><th>"Racket-face angle"</th><td class="bad">Orientation estimate relative to a neutral pose that was not recorded in the session; sensor-only orientation drifts</td></tr>
+<tr><th>Data latency card</th><td class="bad">Shows ~1,252,800 ms — an offset between two clock references, not a real delay</td></tr>
+<tr><th>Swing-type classification</th><td class="bad">65 serves, 8 forehands, 4 backhands and ~120 unclassified in a free-hitting drill — unreliable</td></tr>
+<tr><th>Feedback messages and report suggestions</th><td class="bad">Rule-generated text; never compared with a coach's judgement</td></tr>
+</tbody>
+</table>
+
+<h2>What has not been done</h2>
+<ul>
+  <li>No reference method (radar, motion capture, labelled video); no accuracy figure for any metric.</li>
+  <li>No measurement of the timing error between a video frame and the sensor peak.</li>
+  <li>No measurement of sensor weight, size, battery life, setup time, or effect on racket balance.</li>
+  <li>No evidence that using the interface changes how anyone plays.</li>
+</ul>
+
+<h2>Next steps (Leon's plan)</h2>
+<ul>
+  <li>Record and label real sessions swing by swing; tune detection and scoring on that data instead of the simulator.</li>
+  <li>Calibrate the sensor's mounting orientation to separate forehand from backhand.</li>
+  <li>Add video tracking of the racket and ball to get the real racket-head path and contact point, and compare them with the sensor's estimates.</li>
+  <li>A small multi-week comparison of players with and without the interface.</li>
+</ul>
+
+<h2>Who did what</h2>
+<p>Leon assembled the hardware, wrote the sensor firmware (IMU reading, a packet format with corruption detection, the wireless link), the sensor-data processing, the clock alignment, the swing detector and phase logic, and the training interface, and ran the court tests. Body landmarks come from Google's MediaPipe Pose; wireless uses Espressif's ESP-NOW; the interface uses open-source web libraries; all hardware is off-the-shelf. Teammates took part in court tests, a teacher advised, and parts of the code were written with AI coding assistants with Leon doing the debugging and iteration.</p>
+
+<h2>Where to look</h2>
+<ul>
+  <li>Website and this overview: <a href="https://github.com/leon-3647/squashsense">github.com/leon-3647/squashsense</a> (public).</li>
+  <li>Application and firmware code: not public at the time of writing.</li>
+</ul>
+
+
+<footer>© 2026 Leon · SquashSense · <a href="../">Back to the site</a></footer>
+</div>
+</body>
+</html>

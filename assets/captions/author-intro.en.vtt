@@ -1,0 +1,439 @@
+WEBVTT
+
+NOTE Automatic speech recognition of Leon's recorded introduction, with clear mis-hearings corrected by context. Wording may still differ slightly from the audio.
+
+1
+00:00:00.420 --> 00:00:07.860
+Hello, my name is Leon Li, and I'm currently an 11th grader at the Hotchkiss School.
+
+2
+00:00:08.260 --> 00:00:15.000
+I am the captain of the Hotchkiss squash team for the '26 to '27 school year,
+
+3
+00:00:15.000 --> 00:00:21.840
+and this interview is dedicated to this device that I made that quantifies your swing in squash.
+
+4
+00:00:22.210 --> 00:00:27.600
+Basically how it works is that there is a gyroscope device implemented in this small circular equipment here,
+
+5
+00:00:27.690 --> 00:00:33.650
+which is attached to the end of your racket, and on one side of the court,
+
+6
+00:00:34.570 --> 00:00:40.300
+on one of the walls of the squash court, you attach this video recording device,
+
+7
+00:00:41.030 --> 00:00:46.500
+and it basically quantifies your swing and makes it more consistent.
+
+8
+00:00:46.500 --> 00:00:52.080
+It also has a report at the end, after your training.
+
+9
+00:00:52.930 --> 00:00:56.690
+What issues did you initially identify in squash training?
+
+10
+00:00:57.250 --> 00:01:02.830
+So the first thing I noticed is that most of the feedback you get in squash is just someone's opinion,
+
+11
+00:01:03.270 --> 00:01:11.000
+based on their past experiences. Let's say when you're playing a match, a coach usually watches you and says what they think they saw,
+
+12
+00:01:11.000 --> 00:01:20.080
+but a swing is a fraction of a second, and to be honest, nobody can really see what you did when you hit the ball during your match.
+
+13
+00:01:20.490 --> 00:01:27.500
+The second thing is that there is a lot of training, but a lot of the training that you do is on your own.
+
+14
+00:01:27.500 --> 00:01:34.930
+You're on an empty court doing drills, which is called solo, and there's no feedback at all, so in that case nobody really can give you feedback.
+
+15
+00:01:36.770 --> 00:01:41.550
+I'll give you a more personal example. There's this thing called a nick shot in squash,
+
+16
+00:01:41.930 --> 00:01:45.390
+which means that the ball hits the very edge of the court
+
+17
+00:01:45.990 --> 00:01:50.500
+and then rolls on the floor, and it's impossible for the opponent to get.
+
+18
+00:01:50.500 --> 00:01:56.720
+It's a really hard shot to hit in squash, and usually when someone hits it, we call it a lucky shot.
+
+19
+00:01:58.120 --> 00:02:04.210
+What I want to do is to be able to measure that nick shot, the swing of that nick shot,
+
+20
+00:02:04.710 --> 00:02:11.820
+and to analyze what I did there and do it again on purpose — to quantify it rather than dedicating it to luck.
+
+21
+00:02:13.540 --> 00:02:15.790
+Why squash rather than another sport?
+
+22
+00:02:16.170 --> 00:02:23.000
+I think the simplest answer is I play this sport and I play very competitively. I've been playing this sport since I was nine,
+
+23
+00:02:23.000 --> 00:02:30.000
+and I have a strong passion for this sport. Additionally, I'm also the captain of my squash team,
+
+24
+00:02:30.000 --> 00:02:36.220
+and we won a national championship last year.
+
+25
+00:02:36.360 --> 00:02:44.180
+With that comes great responsibility, which also extends my dedication and passion for squash.
+
+26
+00:02:44.680 --> 00:02:52.500
+But I think another reason why I chose to design this for squash is that the court is small,
+
+27
+00:02:52.500 --> 00:03:00.000
+and having a camera is something that we see very often in tournaments and matches,
+
+28
+00:03:00.000 --> 00:03:11.000
+and having this camera rather than a normal video-footage type of camera would be sort of the same, so it's very applicable.
+
+29
+00:03:11.000 --> 00:03:20.880
+Another thing is the trajectory of the ball when you hit on the squash court is very closely related to physics and, I guess, math,
+
+30
+00:03:21.380 --> 00:03:27.000
+because there's bouncing to the wall, and you can really calculate the trajectory if you want,
+
+31
+00:03:27.000 --> 00:03:32.370
+if we fit it into a problem. But it's a very abstract idea.
+
+32
+00:03:32.770 --> 00:03:38.190
+I think I'm on my way to filling it in and making this more well-rounded.
+
+33
+00:03:38.890 --> 00:03:43.000
+What are the shortcomings of existing training methods?
+
+34
+00:03:43.000 --> 00:03:54.740
+So I guess most of the problems with the training methods today are that they adhere to a more conventional approach. By that, I mean
+
+35
+00:03:55.560 --> 00:04:04.000
+coaches use their past experiences to coach you. They try to put in the techniques and experiences they had in their past tournament or squash experiences,
+
+36
+00:04:04.000 --> 00:04:14.000
+and they tell you what to do. However, that changes for
+
+37
+00:04:14.440 --> 00:04:21.840
+different coaches, and I had that problem before, where multiple coaches tell me different things and I don't know
+
+38
+00:04:22.470 --> 00:04:32.590
+who to listen to, because they all have their advantages and their disadvantages. So I guess with this device — not saying that it fully
+
+39
+00:04:33.610 --> 00:04:40.000
+solves this problem entirely — but there's a universal standard that tracks your swing,
+
+40
+00:04:40.000 --> 00:04:45.680
+and there is a perfect swing and angle
+
+41
+00:04:46.090 --> 00:04:51.440
+that can be detected using a gyroscope in this
+
+42
+00:04:52.170 --> 00:04:56.750
+thing on your racket, and we can follow those numbers instead of
+
+43
+00:04:57.220 --> 00:05:00.180
+improving based off of experiences
+
+44
+00:05:00.610 --> 00:05:05.070
+from different coaches. I guess, in conclusion,
+
+45
+00:05:05.640 --> 00:05:18.420
+the advice and improvements that we get in squash nowadays are way too subjective and change accordingly, so it's a very hard thing to keep track of.
+
+46
+00:05:19.270 --> 00:05:20.590
+How does the system work?
+
+47
+00:05:21.160 --> 00:05:28.000
+So there are three parts. First, there's a small motion sensor on the racket handle, which is this.
+
+48
+00:05:28.000 --> 00:05:35.410
+It measures how fast the racket is moving, turning and accelerating, 500 times a second,
+
+49
+00:05:36.010 --> 00:05:43.540
+and it sends that wirelessly to a small computer. Second, there's a camera watching the player, which is this
+
+50
+00:05:43.970 --> 00:05:50.350
+camera lens here, and software that finds 33 points on your body in every frame.
+
+51
+00:05:50.820 --> 00:05:58.770
+From those points, I can work out the joint angles, how much your shoulders and hips are turning,
+
+52
+00:05:59.430 --> 00:06:01.230
+how fast your wrist is moving.
+
+53
+00:06:01.800 --> 00:06:06.540
+After that, the computer follows every swing through six stages:
+
+54
+00:06:07.050 --> 00:06:13.000
+preparation, backswing, forward swing, impact, follow-through and recovery.
+
+55
+00:06:13.000 --> 00:06:18.830
+And to decide you actually hit the ball, it needs two things at the same time:
+
+56
+00:06:19.400 --> 00:06:22.640
+a shock on the sensor while the racket is still moving
+
+57
+00:06:23.110 --> 00:06:28.000
+near full speed. And finally, it puts the two together.
+
+58
+00:06:28.000 --> 00:06:34.160
+It looks at when your hips, shoulders, wrist and racket each hit their peak, and compares that to the moment of contact.
+
+59
+00:06:34.570 --> 00:06:38.860
+And then it gives the swing a score and shows it on a dashboard.
+
+60
+00:06:39.240 --> 00:06:47.470
+You get a live chart, which is a very good visual representation, and the video and the sensor data line up on one timeline.
+
+61
+00:06:48.100 --> 00:06:52.110
+What training recommendations can it give?
+
+62
+00:06:52.550 --> 00:07:00.000
+Every piece of advice comes with the numbers behind it. So on timing, if your racket hits full speed before your shoulders have finished turning,
+
+63
+00:07:00.000 --> 00:07:06.000
+it tells you that, and it tells you by how many milliseconds — the time.
+
+64
+00:07:06.000 --> 00:07:12.480
+And on consistency, it looks at how much your racket speed changes from swing to swing
+
+65
+00:07:12.970 --> 00:07:21.940
+for the same kind of shot. If it's all over the place, the advice is to fix your rhythm before you try to swing harder.
+
+66
+00:07:22.370 --> 00:07:29.680
+It also looks at your follow-through: how far the racket keeps going after contact, and how quickly you settle.
+
+67
+00:07:30.150 --> 00:07:35.950
+From the camera, it looks at balance — knee bend, shoulder turning,
+
+68
+00:07:36.330 --> 00:07:43.860
+and your core: whether you're leaning, how much your weight shifts. And it also compares your speed to a target.
+
+69
+00:07:45.060 --> 00:07:47.120
+What was the greatest challenge?
+
+70
+00:07:47.720 --> 00:07:58.480
+I think the greatest challenge is getting a number to be trustworthy. The first big problem was time: the sensor, the computer and the screen all keep their own clocks,
+
+71
+00:07:58.890 --> 00:08:06.000
+and wireless data shows up late or goes missing. So early on, the moment of the racket peak and the matching video frame
+
+72
+00:08:06.000 --> 00:08:13.650
+could be off by a noticeable fraction of a second, and at that point any timing analysis is useless.
+
+73
+00:08:14.410 --> 00:08:22.000
+I fixed this problem by lining the clocks up based on the fastest delivery I've ever seen, nudging them a tiny bit at a time as they drift,
+
+74
+00:08:22.000 --> 00:08:29.840
+and then putting the leftover uncertainty on screen instead of hiding it.
+
+75
+00:08:30.370 --> 00:08:33.330
+The second problem showed up in testing.
+
+76
+00:08:34.570 --> 00:08:38.700
+My swing detector used fixed speed limits, and it worked
+
+77
+00:08:39.110 --> 00:08:46.610
+pretty well on fast swings, but then I tried slower and more compact swings, and it felt nothing.
+
+78
+00:08:47.080 --> 00:08:58.580
+So I rewrote it to look for sustained acceleration instead, and to figure out the stages afterwards from the physics — basically the points where the racket changes its direction.
+
+79
+00:08:59.140 --> 00:09:05.390
+The lesson I took from that is to always test on the data you didn't build it for.
+
+80
+00:09:06.440 --> 00:09:09.230
+What new knowledge or skills did you acquire?
+
+81
+00:09:10.050 --> 00:09:16.690
+Honestly, almost everything was new to me. It was a particularly challenging and enlightening experience.
+
+82
+00:09:17.130 --> 00:09:23.000
+I'd never programmed a tiny computer before, so reading a motion sensor, designing a message format that can tell when data got lost or corrupted,
+
+83
+00:09:23.000 --> 00:09:29.040
+and running a wireless link were all firsts.
+
+84
+00:09:29.540 --> 00:09:36.050
+Then there's working with the sensor data: separating gravity from the actual swing,
+
+85
+00:09:36.610 --> 00:09:41.680
+knowing when to smooth a signal and when you really shouldn't, and estimating which way
+
+86
+00:09:42.050 --> 00:09:48.180
+the racket is pointing, including why that estimate drifts over time.
+
+87
+00:09:48.930 --> 00:09:56.140
+Another challenge was what I mentioned before, which is keeping separate clocks in sync,
+
+88
+00:09:56.710 --> 00:10:01.620
+in the same zone, which was a whole subject I never thought about.
+
+89
+00:10:02.090 --> 00:10:08.400
+And finally, I think I've also acquired a really important skill in this process, which is vibe coding.
+
+90
+00:10:08.770 --> 00:10:13.260
+It's this thing of detecting corruption — 
+
+91
+00:10:14.050 --> 00:10:22.740
+mistakes in your code — and with the help of artificial intelligence, you approach these problems one by one, and slowly
+
+92
+00:10:23.210 --> 00:10:28.940
+learning what's wrong and then improving it over and over again. It requires a lot of patience,
+
+93
+00:10:29.830 --> 00:10:39.150
+and not a lot of skill, but it definitely requires a lot of patience. And I think it really connects to what you do on a squash court, which is also being patient.
+
+94
+00:10:41.190 --> 00:10:47.000
+What is the future direction of your research? There are actually quite a few that I thought about.
+
+95
+00:10:47.000 --> 00:10:53.000
+So the system is built and the sensor is streaming. So the next step is proving it — proving that it works.
+
+96
+00:10:53.000 --> 00:11:01.120
+So first, I want to record real sessions for myself and my teammates,
+
+97
+00:11:01.700 --> 00:11:03.630
+really anyone who plays squash,
+
+98
+00:11:04.010 --> 00:11:09.330
+label every shot and tune the detection and scoring on real data instead of a simulator.
+
+99
+00:11:09.860 --> 00:11:17.040
+That also lets me calibrate how the sensor is mounted so I can tell forehand from backhand.
+
+100
+00:11:18.660 --> 00:11:26.000
+Second, I want to add video tracking of the racket and the ball, so I can get the real path of the racket head and the actual contact point,
+
+101
+00:11:26.000 --> 00:11:32.000
+and I can check that against the sensor. Third — and this is a question that really matters and I'm really not sure about —
+
+102
+00:11:32.000 --> 00:11:38.840
+does the feedback and the results you get from this system
+
+103
+00:11:39.110 --> 00:11:44.400
+actually change how people play, or does it really improve how they play?
+
+104
+00:11:44.870 --> 00:11:51.730
+I think I would run a small study over a few weeks comparing players who use the dashboard
+
+105
+00:11:52.260 --> 00:11:57.420
+with players who don't, and see if there is an actual significant difference.
+
+106
+00:12:00.290 --> 00:12:11.860
+I mean, I'm not sure of results yet, but this entire creation could be a very good success. It also could be just
+
+107
+00:12:12.520 --> 00:12:18.510
+something I do for fun that doesn't really have any impact on players. But either way, I think
+
+108
+00:12:19.210 --> 00:12:23.760
+it's a very innovative invention, or system,
+
+109
+00:12:24.420 --> 00:12:29.940
+that will make squash a more technical and better sport.
