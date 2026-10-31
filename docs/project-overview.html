@@ -30,13 +30,14 @@ th{color:var(--text);font-weight:600}
 thead th{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:#9fab98}
 .ok{color:var(--lime)}.warn{color:#f0d06a}.bad{color:#f0a06a}
 footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:#9fab98}
+@media(max-width:600px){header{flex-direction:column;align-items:flex-start}nav{display:flex;flex-wrap:wrap;gap:12px 18px}nav a{margin-left:0}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <a class="brand" href="../"><span>s•</span>SquashSense</a>
-  <nav><a href="../">Back to the site</a><a href="https://github.com/leon-3647/squashsense">Source on GitHub</a></nav>
+  <nav><a href="../">Back to the site</a><a href="../story.html">My story</a><a href="https://github.com/leon-3647/squashsense">Source on GitHub</a></nav>
 </header>
 
 <h1>SquashSense — project overview</h1>
@@ -95,7 +96,10 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--border);font-
 </ul>
 
 <h2>Who did what</h2>
-<p>Leon assembled the hardware, wrote the sensor firmware (IMU reading, a packet format with corruption detection, the wireless link), the sensor-data processing, the clock alignment, the swing detector and phase logic, and the training interface, and ran the court tests. Body landmarks come from Google's MediaPipe Pose; wireless uses Espressif's ESP-NOW; the interface uses open-source web libraries; all hardware is off-the-shelf. Teammates took part in court tests, a teacher advised, and parts of the code were written with AI coding assistants with Leon doing the debugging and iteration.</p>
+<p>Leon assembled the hardware, participated in PCB design and revisions, developed the sensor firmware, sensor-data processing, clock alignment, swing detection and training interface, and ran the court tests. A specialist in AI for sports monitoring provided technical guidance through an informal, unpaid collaboration that began on a squash court. Body landmarks come from Google's MediaPipe Pose; wireless uses Espressif's ESP-NOW; the project uses existing hardware components and open-source web libraries. Teammates took part in court tests, and parts of the code were written with AI coding assistance, with Leon doing the debugging and iteration.</p>
+
+<h2>Development timeline</h2>
+<p>The project began at the start of grade 10 with training needs, technical research and feature planning. During the summer after grade 10, work focused on component selection, PCB design and hardware assembly. Grade 11 focused on firmware, body tracking, clock synchronization and swing detection. By the end of the summer after grade 11, Leon had completed this stage of prototype development and initial court testing. <a href="../story.html">Read Leon's full account of the project.</a></p>
 
 <h2>Where to look</h2>
 <ul>

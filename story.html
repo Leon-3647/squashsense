@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101310">
+  <title>My story — Leon builds SquashSense</title>
+  <meta name="description" content="Leon’s account of building SquashSense, from a conversation on a squash court at the start of tenth grade to a working prototype by the summer after eleventh grade.">
+  <link rel="canonical" href="https://leon-3647.github.io/squashsense/story.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="SquashSense">
+  <meta property="og:title" content="How SquashSense began — My story, by Leon">
+  <meta property="og:description" content="A question from my own game, a collaboration that began on court, and the work of building a training prototype through grades 10 and 11.">
+  <meta property="og:url" content="https://leon-3647.github.io/squashsense/story.html">
+  <meta property="og:image" content="https://leon-3647.github.io/squashsense/assets/author/leon-court.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles/main.css?v=20261011-en">
+  <link rel="stylesheet" href="styles/story.css?v=20261031">
+</head>
+<body class="story-page">
+  <a class="skip-link" href="#grade-10">Skip to my story</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="SquashSense home"><span class="brand-icon">s<span>•</span></span>SquashSense</a>
+    <nav class="story-header-links" aria-label="Website navigation">
+      <a href="./#story">← Back to project</a>
+      <a href="./#demo">Watch the demo ↗</a>
+    </nav>
+  </header>
+  <main>
+    <div class="story-masthead">
+      <div class="story-masthead-inner">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span><span>MY STORY · LEON</span></div>
+          <h1>How SquashSense<br><span>began.</span></h1>
+          <p class="story-deck">I wanted to understand why I could hit a good shot but struggle to repeat it. That question became a project I worked on through grades 10 and 11.</p>
+          <div class="story-byline"><strong>By Leon</strong><span>Squash player &amp; developer</span><span>Grade 10 → Summer after grade 11</span></div>
+        </div>
+        <figure>
+          <img src="assets/author/leon-court.jpg" alt="Leon playing a forehand during a squash match" width="1600" height="1067" fetchpriority="high">
+          <figcaption>The questions behind SquashSense came from my own training.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="story-layout">
+      <nav class="story-chapter-nav" aria-label="Story chapters">
+        <p>THE DEVELOPMENT TIMELINE</p>
+        <ol>
+          <li><a href="#grade-10"><span>01 / GRADE 10</span>The starting point</a></li>
+          <li><a href="#summer-10"><span>02 / SUMMER AFTER GRADE 10</span>Building the hardware</a></li>
+          <li><a href="#grade-11"><span>03 / GRADE 11</span>Working through problems</a></li>
+          <li><a href="#summer-11"><span>04 / SUMMER AFTER GRADE 11</span>Testing on court</a></li>
+        </ol>
+        <a class="story-nav-demo" href="./#demo">See the recorded test ↗</a>
+      </nav>
+      <article class="story-article" aria-label="My experience developing SquashSense">
+        <section class="story-chapter" id="grade-10" aria-labelledby="grade-10-title">
+          <div class="eyebrow">01 / GRADE 10 · THE IDEA AND THE PLAN</div>
+          <h2 id="grade-10-title">A conversation on court.</h2>
+          <p>At the beginning of tenth grade, I met a specialist in AI for sports monitoring at a squash court. We both enjoyed squash and were interested in using technology to understand movement, so we quickly found plenty to talk about. Our conversations started with playing styles and training routines. Eventually, I brought up something that had bothered me for a long time: sometimes I would hit a shot I was really happy with, but when I tried to repeat it, I could not find the same feeling.</p>
+          <p>After years of playing squash, I knew this was a familiar problem. When a coach was there, I could ask for feedback. When I practiced alone, I mostly relied on how a movement felt. I wondered whether I could record what my racket and body were doing, then look back afterward to see what had changed. His work involved collecting and analyzing movement data, and the question interested him too. We hit it off and decided to try building a prototype that we could take onto the court.</p>
+          <p>That was how SquashSense began. I brought my squash experience and the questions I encountered in training. I took responsibility for moving the project forward, assembling the equipment, and testing it on court. He provided technical guidance and helped me work through design choices and debugging problems. It was an informal, unpaid collaboration based on a shared interest. At first, we did not know how far the project would go. We wanted to start by collecting data and see whether it could help me understand my own swing.</p>
+          <p>During tenth grade, I used time outside school to define the training problems, learn about the technology, and discuss possible approaches with him. I wanted to know when my racket began accelerating, how my body movement lined up with the racket, and what differed between swings that looked similar. A camera could show body movement, but it would struggle to capture the details of a rapidly rotating racket. A sensor on the racket could record acceleration and rotation, but it could not show how the rest of my body contributed. We decided to collect both kinds of data and try to place them on a shared timeline.</p>
+          <p>As the approach became clearer, I worked out what the prototype needed to do: record racket motion, identify body landmarks, display the data, and save training records for later review. I divided the system into three parts: a small sensor at the end of the racket grip, a camera and computer beside the court, and a web interface for viewing the results. I started with data collection and display, then gradually added swing detection and analysis.</p>
+        </section>
+        <section class="story-chapter" id="summer-10" aria-labelledby="summer-10-title">
+          <div class="eyebrow">02 / SUMMER AFTER GRADE 10 · HARDWARE</div>
+          <h2 id="summer-10-title">Making room for the electronics.</h2>
+          <p>During the summer after tenth grade, I had more time to focus on component selection and hardware assembly. The racket device needed to fit at the butt end of the grip, stay securely attached, and leave room for the electronics and power supply without getting in the way of my hand. With the specialist’s guidance, I compared component sizes, interfaces, sampling capabilities, and how difficult they would be to program. I selected an ESP32-S3 microcontroller and an ICM42688 six-axis inertial sensor. For the courtside computer, we chose the ROCK 5C, considering its ability to connect to a camera, receive sensor data, and run the vision software.</p>
+          <p>That summer, I also began participating in the PCB design and revisions, working on component placement and connections within the limited mounting space. The assembly required us to consider the sensor’s orientation, how the housing would attach to the racket, and how we would access the connections for debugging. Changing the sensor’s mounting direction, for example, changed what its readings meant in relation to the racket. The software had to account for that. I began to see how closely the physical design and the code depended on each other.</p>
+        </section>
+        <section class="story-chapter" id="grade-11" aria-labelledby="grade-11-title">
+          <div class="eyebrow">03 / GRADE 11 · SOFTWARE AND INTEGRATION</div>
+          <h2 id="grade-11-title">Getting the parts to agree.</h2>
+          <p>Throughout eleventh grade, I continued refining the hardware while spending more of my time on programming and the vision system. I learned to write and debug firmware so the sensor could sample continuously and send its readings wirelessly to the courtside computer. For body tracking, I used MediaPipe’s existing pose-estimation model and built the processing around it: identifying body landmarks, calculating joint angles, and displaying movement paths. My work focused on integrating the model and handling its output. I also used open-source tools and AI coding assistance, then read, debugged, and tested the code to check whether it behaved as intended.</p>
+          <p>The vision output was not always reliable. When a player moved quickly or one part of the body blocked another, landmarks could jitter or disappear, causing the calculated angles to change abruptly. I added confidence checks, smoothing, and status indicators so the interface could show when the tracking was uncertain. I also checked performance on the ROCK 5C and worked through the trade-off between processing speed and tracking quality. These changes did not remove the camera’s limitations, but they helped keep unreliable observations from being presented as dependable measurements.</p>
+          <p>Time synchronization became another major challenge during eleventh grade. The sensor, courtside computer, and browser each kept their own clock. Wireless transmission also meant that a reading did not appear on screen at the moment it was sampled. If I simply plotted data as it arrived, the racket’s motion peak could be shifted away from the corresponding body movement. Both streams might look fine individually while giving a misleading picture of their timing. With the specialist’s guidance, I traced the data from sampling to display, retained the original timestamps, mapped the devices onto a shared timeline, and introduced gradual corrections for clock offsets. Even after implementing this, the actual synchronization error still needed further measurement.</p>
+          <p>Swing detection also required revision. The early rules relied mainly on whether the racket’s rotational speed crossed a fixed threshold. They could detect faster, larger swings but sometimes missed slower, more compact ones. That did not match what I knew from playing: a smaller movement could still be a valid swing. I adjusted the logic to consider sustained angular acceleration as well as speed, and used changes in rotation direction to refine the swing phases. After that, I paid more attention to the movements a rule failed to detect, rather than only checking whether it recognized a full, fast swing.</p>
+        </section>
+        <section class="story-chapter" id="summer-11" aria-labelledby="summer-11-title">
+          <div class="eyebrow">04 / SUMMER AFTER GRADE 11 · COURT TESTS</div>
+          <h2 id="summer-11-title">Back to the place it started.</h2>
+          <p>During the summer after eleventh grade, I concentrated on getting the entire setup working together and testing it on court. The sensor, camera, and interface had to operate together during real training. I checked whether data continued to arrive, whether movements were detected, and whether the saved records could be reviewed afterward. When something went wrong, I worked through the possible causes: the physical connection, data transmission, detection logic, or display. Much of that summer involved going back and forth between the court and my computer—finding a problem during testing, changing the code, and returning to the court to check it again.</p>
+          <figure>
+            <img src="assets/testing.jpg" alt="Leon checking the racket sensor and laptop beside the squash court" width="1448" height="1086" loading="lazy">
+            <figcaption>Checking the sensor and the interface beside the court.</figcaption>
+          </figure>
+          <p>By the end of that summer, I had completed this stage of the prototype’s development. SquashSense could collect racket-motion data and body landmarks and display live graphs, movement information, and training records through a web interface. I also put together demonstration videos and a project website to show the equipment, explain the development process, and present the test results. It remains a prototype that needs further validation. Its movement scores, shot classifications, and usefulness for improving training still require more data and controlled comparisons.</p>
+          <div class="story-reflection"><p>When I started in tenth grade, there were technical problems I did not even know how to ask about. By the end of the summer after eleventh grade, I could bring specific data and my own hypotheses to discussions with the specialist about what to change next. My original question was how to repeat a good shot. Working on SquashSense gave me more questions to ask: how a measurement was produced, where it might be wrong, and what I would need to test before trusting it.</p></div>
+        </section>
+        <div class="story-next"><a class="button" href="./#demo">Watch the recorded test <span aria-hidden="true">↗</span></a><a href="./#development">Explore the build and testing notes</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <a class="brand" href="./"><span class="brand-icon">s<span>•</span></span>SquashSense</a>
+    <span>A student-built squash training research prototype</span>
+    <span class="footer-note">© 2026 Leon · SquashSense</span>
+    <a href="#" aria-label="Back to top">↑</a>
+  </footer>
+</body>
+</html>

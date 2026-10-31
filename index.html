@@ -19,6 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles/main.css?v=20261011-en">
+<link rel="stylesheet" href="styles/story.css?v=20261031">
 <script type="module" src="js/main.js?v=20261011-en"></script>
 </head>
 <body>
@@ -28,10 +29,10 @@
   <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
   <nav id="site-nav" aria-label="Main navigation">
     <a href="#overview">Overview</a>
+    <a class="nav-story" href="#story">My story</a>
     <a href="#demo">Demo</a>
     <a href="#how">How it works</a>
     <a href="#testing">Testing</a>
-    <a href="#development">Development</a>
     <a href="#specs">Specs &amp; FAQ</a>
     <a href="#author">About Leon</a>
     <a href="#docs">Docs</a>
@@ -48,7 +49,7 @@
     <p class="hero-description">SquashSense is a prototype I built to look at a squash swing from two sides at once. A small motion sensor on the end of the racket grip records how fast the racket moves and turns. A camera on a small computer at the side of the court tracks the body and estimates joint angles. The software puts both on one timeline, so after a session you can look at a swing with numbers and video together instead of relying only on what you or a coach remember.</p>
     <div class="hero-actions">
       <a class="button button-lime" href="#demo"><span class="play-small">▶</span><span>See a recorded test</span></a>
-      <a class="text-link" href="#how"><span>How it works</span><span>↗</span></a>
+      <a class="text-link" href="#story"><span>How I built it</span><span>↗</span></a>
     </div>
     <div class="hero-tech"><span>RACKET SENSOR + CAMERA</span><span>One timeline · Reviewed after training</span></div>
   </div>
@@ -59,13 +60,36 @@
     <div class="hero-caption"><span class="caption-symbol">⌁</span><div><span class="caption-title">Camera beside the court, sensor on the racket.</span><span class="caption-sub">SquashSense · student research prototype, not a product</span></div></div>
     <div class="image-corner corner-tl"></div><div class="image-corner corner-br"></div>
   </div>
-  <div class="hero-bottom"><span>Below, in order: the demo, how it works, testing and limitations, development, specs and FAQ.</span><a href="#demo"><span>Scroll down</span><span>↓</span></a></div>
+  <div class="hero-bottom"><span>A project from the start of grade 10 to the summer after grade 11.</span><a href="#story"><span>My story</span><span>↓</span></a></div>
+</section>
+
+<section class="journey-feature section-light" id="story" aria-labelledby="journey-title">
+  <div class="journey-feature-inner">
+    <div class="journey-feature-heading">
+      <div>
+        <div class="eyebrow"><span class="section-index">01 /</span><span>MY STORY · LEON</span></div>
+        <h2 id="journey-title">It started on<br>a squash court.</h2>
+        <p class="journey-question">I could hit a good shot.<br>Why couldn’t I repeat it?</p>
+      </div>
+      <div class="journey-feature-copy">
+        <p>At the beginning of tenth grade, I met a specialist in AI for sports monitoring at a squash court. We both enjoyed squash and were interested in using technology to understand movement. A conversation about training became an informal, unpaid collaboration: I brought the questions from my own game and worked on the prototype; he helped me work through the technical decisions.</p>
+        <a class="button journey-read" href="story.html"><span>Read my full story</span><span aria-hidden="true">↗</span></a>
+        <span class="journey-reading-note">In my own words · From grade 10 to the end of the summer after grade 11</span>
+      </div>
+    </div>
+    <ol class="journey-timeline" aria-label="Project development timeline">
+      <li><a href="story.html#grade-10"><span class="journey-stage">01 / GRADE 10</span><h3>A question worth testing</h3><p>Training needs, technical research and the first feature plan.</p><span class="journey-stage-link">The starting point <span aria-hidden="true">↗</span></span></a></li>
+      <li><a href="story.html#summer-10"><span class="journey-stage">02 / SUMMER AFTER GRADE 10</span><h3>Building the hardware</h3><p>Component selection, PCB revisions and the courtside computer.</p><span class="journey-stage-link">From plan to prototype <span aria-hidden="true">↗</span></span></a></li>
+      <li><a href="story.html#grade-11"><span class="journey-stage">03 / GRADE 11</span><h3>Getting the parts to agree</h3><p>Vision, clock alignment and the swings the first detector missed.</p><span class="journey-stage-link">The problems I worked through <span aria-hidden="true">↗</span></span></a></li>
+      <li><a href="story.html#summer-11"><span class="journey-stage">04 / SUMMER AFTER GRADE 11</span><h3>Back onto the court</h3><p>Integration, court tests and a working prototype—with more to validate.</p><span class="journey-stage-link">What I finished and learned <span aria-hidden="true">↗</span></span></a></li>
+    </ol>
+  </div>
 </section>
 
 <!-- 2. Demonstration -->
 <section class="demo-section" id="demo">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">01 /</span><span>RECORDED TEST · 27 AUGUST 2026</span></div><h2>One recorded session, <span>explained step by step.</span></h2></div>
+    <div><div class="eyebrow"><span class="section-index">02 /</span><span>RECORDED TEST · 27 AUGUST 2026</span></div><h2>One recorded session, <span>explained step by step.</span></h2></div>
     <p>The two-minute clip is a screen recording of the training interface during a free-hitting session on 27 August 2026 (22 minutes, 197 swings detected by the software, one player: me). The prototype’s interface is in Chinese; the walkthrough below explains what is on screen and the legends translate every label. The numbers in the recording come from this prototype build and have not been checked against any reference measurement.</p>
   </div>
   <div class="video-shell" data-video-shell>
@@ -167,7 +191,7 @@
 <!-- 3. How it works -->
 <section class="approach section-light" id="how">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">02 /</span><span>HOW IT WORKS</span></div><h2>Three parts,<br><span>one timeline.</span></h2></div>
+    <div><div class="eyebrow"><span class="section-index">03 /</span><span>HOW IT WORKS</span></div><h2>Three parts,<br><span>one timeline.</span></h2></div>
     <p>Everything runs on the local network: the sensor sends its data wirelessly to a receiver plugged into the courtside computer, the camera connects to the same computer, and the training interface is a web page opened on a laptop on the same network. What each part measures or computes comes first; component names come after.</p>
   </div>
   <div class="capabilities">
@@ -233,7 +257,7 @@
 <!-- 4. Testing and limitations -->
 <section class="testing-section" id="testing">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">03 /</span><span>TESTING AND LIMITATIONS</span></div><h2>What has been tested,<br><span>and what hasn’t.</span></h2></div>
+    <div><div class="eyebrow"><span class="section-index">04 /</span><span>TESTING AND LIMITATIONS</span></div><h2>What has been tested,<br><span>and what hasn’t.</span></h2></div>
     <p>SquashSense is a working prototype, not a validated measurement system. This section keeps “the demonstration worked” separate from “the measurement is right”.</p>
   </div>
   <div class="test-grid">
@@ -279,7 +303,7 @@
 <!-- 5. Development and contribution -->
 <section class="story-section section-light" id="development">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">04 /</span><span>DEVELOPMENT AND MY PART IN IT</span></div><h2>What I built,<br><span>and what broke along the way.</span></h2></div>
+    <div><div class="eyebrow"><span class="section-index">05 /</span><span>DEVELOPMENT AND MY PART IN IT</span></div><h2>What I built,<br><span>and what broke along the way.</span></h2></div>
     <p>The photos are in order, each with what it shows. After them: two documented changes, and what I did versus what I reused or had help with.</p>
   </div>
   <div class="story-gallery">
@@ -337,14 +361,14 @@
           <li>Body landmarks come from Google’s MediaPipe Pose model; the code that turns landmarks into angles, paths and phases is mine.</li>
           <li>Wireless uses Espressif’s ESP-NOW protocol.</li>
           <li>The interface and charts are built on open-source web libraries.</li>
-          <li>All hardware is off-the-shelf: ESP32-S3 boards, an ICM42688 IMU module, the ROCK 5C single-board computer, a camera and a suction mount.</li>
+          <li>Existing hardware components include ESP32-S3 boards, an ICM42688 IMU module, the ROCK 5C single-board computer, a camera and a suction mount.</li>
         </ul>
       </article>
       <article>
         <h4>Help I had</h4>
         <ul>
           <li>Teammates took part in the court tests.</li>
-          <li>A teacher advised on the project.</li>
+          <li>A specialist in AI for sports monitoring provided technical guidance through an informal, unpaid collaboration that began on a squash court.</li>
           <li>Parts of the code were written with AI coding assistants; the debugging, the trade-offs and the repeated re-testing were mine. In the video I call this “vibe coding”.</li>
         </ul>
       </article>
@@ -355,7 +379,7 @@
 <!-- 6. Specifications and FAQ -->
 <section class="specs-section" id="specs">
   <div class="section-heading">
-    <div><div class="eyebrow"><span class="section-index">05 /</span><span>SPECS AND FAQ</span></div><h2>What using it<br><span>is actually like.</span></h2></div>
+    <div><div class="eyebrow"><span class="section-index">06 /</span><span>SPECS AND FAQ</span></div><h2>What using it<br><span>is actually like.</span></h2></div>
     <p>Only what is known. Where a quantity has not been measured (weight, size, battery life, setup time) this says so instead of giving an estimate.</p>
   </div>
   <div class="specs-layout">
@@ -377,7 +401,7 @@
 <!-- 7. About Leon -->
 <section class="author-section section-light" id="author">
   <div class="author-profile" aria-labelledby="author-name">
-    <div class="author-eyebrow eyebrow"><span class="section-index">06 /</span><span>ABOUT LEON</span></div>
+    <div class="author-eyebrow eyebrow"><span class="section-index">07 /</span><span>ABOUT LEON</span></div>
     <div class="author-intro">
       <figure class="author-lead-photo"><img src="assets/author/leon-court.jpg" alt="Leon hitting a forehand during a squash match" width="1600" height="1067" loading="lazy"><figcaption><span>Leon in a match</span><span>Tournament photo</span></figcaption></figure>
       <div class="author-bio">
@@ -386,6 +410,7 @@
         <h3>Why I built it.</h3>
         <p>I have played squash for about ten years. I am a senior at a boarding high school in the United States and captain of its squash team this season. Most feedback in squash is someone’s impression of a swing that lasts a fraction of a second, and solo practice gives no feedback at all. I wanted a way to measure a swing — the nick shot I hit by luck, say — and then hit it again on purpose. SquashSense is my attempt at that: a sensor, a camera, and software that puts the two on one timeline.</p>
         <p class="author-project">What I learned: almost everything was new to me — my first microcontroller program, my first wireless link, my first time handling raw sensor data. The lesson that stuck: always test on data you did not build it for. The detector that worked on my fast swings failed on slow ones.</p>
+        <a class="journey-inline-link" href="story.html">Read how I built SquashSense <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
@@ -438,7 +463,7 @@
 
 <!-- 8. Documentation -->
 <section class="closing" id="docs">
-  <span class="eyebrow">07 / DOCUMENTATION AND SOURCE</span>
+  <span class="eyebrow">08 / DOCUMENTATION AND SOURCE</span>
   <h2>To look closer, <span>start here.</span></h2>
   <p class="closing-text">This website’s source is public, and the project overview collects the page’s key points, verified and unverified, on one page. The application and firmware code are not public yet.</p>
   <div class="closing-links">
