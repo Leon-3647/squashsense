@@ -30,6 +30,7 @@
 .story-masthead-inner{max-width:1340px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:8%;align-items:center}
 html[lang=en] .story-masthead h1{font-size:clamp(44px,5.3vw,78px);font-weight:550;line-height:1.06;letter-spacing:-3px;margin:25px 0}
 .story-masthead h1 span{color:var(--lime)}
+.story-project-name{font-size:18px;font-weight:600;line-height:1.5;color:var(--lime);margin:0 0 18px}
 .story-deck{font-size:18px;line-height:1.8;color:#c0c9b8;max-width:550px}
 .story-byline{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;color:#b8c5ac;margin-top:30px;padding-top:22px;border-top:1px solid #38442f;max-width:550px}
 .story-byline strong{font-weight:600;color:#e8edde}

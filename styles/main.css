@@ -92,6 +92,7 @@ h4{margin:0}
 @media(max-width:760px){.site-header{height:auto}.site-header nav{display:none}.site-header.menu-open nav{display:flex}}
 
 /* Hero */
+.hero-purpose{max-width:480px;font-size:clamp(19px,1.65vw,24px);font-weight:500;line-height:1.45;color:#e3eadc;margin:20px 0 0;text-wrap:balance}
 .hero-description{max-width:520px;font-size:16.5px;line-height:1.85;color:#c3ccbd}
 html[lang=en] .hero-description{line-height:1.7}
 html[lang=en] h1{font-size:clamp(40px,4.1vw,70px);letter-spacing:-2.4px;line-height:1.08}

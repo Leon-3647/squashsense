@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101310">
-  <title>My story — Leon builds SquashSense</title>
-  <meta name="description" content="Leon’s account of building SquashSense, from a conversation on a squash court at the start of tenth grade to a working prototype by the summer after eleventh grade.">
+  <title>My story — Racket Sensory Device (RSD) · SquashSense</title>
+  <meta name="description" content="Leon’s account of building Racket Sensory Device (RSD), also known as SquashSense, from the start of tenth grade to the summer after eleventh grade. Leon attends The Hotchkiss School.">
   <link rel="canonical" href="https://leon-3647.github.io/squashsense/story.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="SquashSense">
-  <meta property="og:title" content="How SquashSense began — My story, by Leon">
+  <meta property="og:title" content="Building Racket Sensory Device (RSD) — My story, by Leon">
   <meta property="og:description" content="A question from my own game, a collaboration that began on court, and the work of building a training prototype through grades 10 and 11.">
   <meta property="og:url" content="https://leon-3647.github.io/squashsense/story.html">
   <meta property="og:image" content="https://leon-3647.github.io/squashsense/assets/author/leon-court.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c3f36b'/%3E%3Cpath d='M23 9H13a4 4 0 0 0 0 8h6a3 3 0 0 1 0 6H9' stroke='%23101310' stroke-width='4' fill='none'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles/main.css?v=20261011-en">
-  <link rel="stylesheet" href="styles/story.css?v=20261031">
+  <link rel="stylesheet" href="styles/main.css?v=20261104-rsd">
+  <link rel="stylesheet" href="styles/story.css?v=20261104-rsd">
 </head>
 <body class="story-page">
   <a class="skip-link" href="#grade-10">Skip to my story</a>
@@ -33,8 +33,9 @@
         <div>
           <div class="eyebrow"><span class="eyebrow-line"></span><span>MY STORY · LEON</span></div>
           <h1>How SquashSense<br><span>began.</span></h1>
+          <p class="story-project-name">Racket Sensory Device (RSD)</p>
           <p class="story-deck">I wanted to understand why I could hit a good shot but struggle to repeat it. That question became a project I worked on through grades 10 and 11.</p>
-          <div class="story-byline"><strong>By Leon</strong><span>Squash player &amp; developer</span><span>Grade 10 → Summer after grade 11</span></div>
+          <div class="story-byline"><strong>By Leon</strong><span>The Hotchkiss School</span><span>Squash player &amp; developer</span><span>Grade 10 → Summer after grade 11</span></div>
         </div>
         <figure>
           <img src="assets/author/leon-court.jpg" alt="Leon playing a forehand during a squash match" width="1600" height="1067" fetchpriority="high">
@@ -59,7 +60,7 @@
           <h2 id="grade-10-title">A conversation on court.</h2>
           <p>At the beginning of tenth grade, I met a specialist in AI for sports monitoring at a squash court. We both enjoyed squash and were interested in using technology to understand movement, so we quickly found plenty to talk about. Our conversations started with playing styles and training routines. Eventually, I brought up something that had bothered me for a long time: sometimes I would hit a shot I was really happy with, but when I tried to repeat it, I could not find the same feeling.</p>
           <p>After years of playing squash, I knew this was a familiar problem. When a coach was there, I could ask for feedback. When I practiced alone, I mostly relied on how a movement felt. I wondered whether I could record what my racket and body were doing, then look back afterward to see what had changed. His work involved collecting and analyzing movement data, and the question interested him too. We hit it off and decided to try building a prototype that we could take onto the court.</p>
-          <p>That was how SquashSense began. I brought my squash experience and the questions I encountered in training. I took responsibility for moving the project forward, assembling the equipment, and testing it on court. He provided technical guidance and helped me work through design choices and debugging problems. It was an informal, unpaid collaboration based on a shared interest. At first, we did not know how far the project would go. We wanted to start by collecting data and see whether it could help me understand my own swing.</p>
+          <p>That was how Racket Sensory Device (RSD), also known as SquashSense, began. I brought my squash experience and the questions I encountered in training. I took responsibility for moving the project forward, assembling the equipment, and testing it on court. He provided technical guidance and helped me work through design choices and debugging problems. It was an informal, unpaid collaboration based on a shared interest. At first, we did not know how far the project would go. We wanted to start by collecting data and see whether it could help me understand my own swing.</p>
           <p>During tenth grade, I used time outside school to define the training problems, learn about the technology, and discuss possible approaches with him. I wanted to know when my racket began accelerating, how my body movement lined up with the racket, and what differed between swings that looked similar. A camera could show body movement, but it would struggle to capture the details of a rapidly rotating racket. A sensor on the racket could record acceleration and rotation, but it could not show how the rest of my body contributed. We decided to collect both kinds of data and try to place them on a shared timeline.</p>
           <p>As the approach became clearer, I worked out what the prototype needed to do: record racket motion, identify body landmarks, display the data, and save training records for later review. I divided the system into three parts: a small sensor at the end of the racket grip, a camera and computer beside the court, and a web interface for viewing the results. I started with data collection and display, then gradually added swing detection and analysis.</p>
         </section>
